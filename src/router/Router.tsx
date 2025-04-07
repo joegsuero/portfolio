@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { switchRoutes } from "./routes";
-import Main from "@/components/Main";
+import Main from "@/pages/main/Main";
 
 const Router: React.FC = () => {
   return (
