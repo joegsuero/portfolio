@@ -67,13 +67,23 @@ const Projects = forwardRef((_props, ref: any) => {
                       rel="noopener noreferrer"
                       className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-pixel text-sm"
                     >
-                      <Github className="w-4 h-4" /> Code
+                      {project.code && (
+                        <>
+                          <Github className="w-4 h-4" /> Code
+                        </>
+                      )}
                     </a>
                     <a
                       href={project.live ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-pixel text-sm"
                     >
-                      <ExternalLink className="w-4 h-4" /> Live Demo
+                      {project.live && (
+                        <>
+                          <ExternalLink className="w-4 h-4" /> Live Demo
+                        </>
+                      )}
                     </a>
                   </div>
                 </div>

@@ -32,17 +32,18 @@ export const PROJECTS: Project[] = [
     title: "Personal Trackers",
     description:
       "A desktop application for have organized all your personal data and integrate it with LLM.",
-    tech: ["React", "Rust", "Typescript", "Tauri"],
+    tech: ["React.js", "Rust", "Typescript", "Tauri"],
     image: "/placeholder.svg",
     code: "https://github.com/joegsuero/personal-tracker",
     live: null,
   },
   {
-    title: "Data Visualizer",
+    title: "Guías Mentales",
     description:
-      "Interactive dashboard for visualizing complex datasets with customizable charts and filters.",
-    tech: ["Vue.js", "D3.js", "Firebase"],
+      "A website for a personal development project for share insights and knowledge about mental strength.",
+    tech: ["React.js", "Typescript", "Vite.js"],
     image: "/placeholder.svg",
+    live: "https://guiasmentales.netlify.app/",
   },
   {
     title: "API Gateway",
