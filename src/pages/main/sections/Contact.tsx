@@ -119,7 +119,7 @@ const Contact = forwardRef((_props, ref: any) => {
                 </a>
 
                 <a
-                  href="https://linkedin.com/joegsuero"
+                  href="https://linkedin.com/in/joegsuero"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-gray-300 hover:text-blue-400 transition-colors"

@@ -38,12 +38,13 @@ export const PROJECTS: Project[] = [
     live: null,
   },
   {
-    title: "Guías Mentales",
+    title: "Personal development website",
     description:
       "A website for a personal development project for share insights and knowledge about mental strength.",
     tech: ["React.js", "Typescript", "Vite.js"],
     image: "/placeholder.svg",
-    live: "https://guiasmentales.netlify.app/",
+    live: null,
+    // live: "https://guiasmentales.netlify.app/",
   },
   {
     title: "API Gateway",
