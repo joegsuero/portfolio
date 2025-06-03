@@ -43,19 +43,11 @@ const About = forwardRef((_props, ref: any) => {
             <div className="md:col-span-2 relative">
               <div className="aspect-square bg-blue-900/30 rounded-lg overflow-hidden relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-3/4 h-3/4 border-2 border-blue-400 rounded-lg flex items-center justify-center">
-                    <span className="font-pixel text-blue-400 text-center">
-                      [My Photo]
+                  <div className="w-4/4 h-4/4 border-1 rounded-lg flex items-center justify-center">
+                    <span className="font-pixel text-blue-400 text-center pt-24">
+                      <img src="Profile.jpeg" />
                     </span>
                   </div>
-                </div>
-                <div className="absolute inset-0 grid grid-cols-10 grid-rows-10">
-                  {Array.from({ length: 20 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="border-blue-900/20 border-r border-b"
-                    ></div>
-                  ))}
                 </div>
               </div>
             </div>

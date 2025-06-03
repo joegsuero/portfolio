@@ -117,6 +117,22 @@ const Contact = forwardRef((_props, ref: any) => {
                     <div>github.com/joegsuero</div>
                   </div>
                 </a>
+                <a
+                  href="https://medium.com/@joegsuero"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  <div className="bg-blue-900/20 p-3 rounded-lg">
+                    <img src="medium.svg" className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <div className="font-pixel text-sm text-gray-400">
+                      Medium
+                    </div>
+                    <div>medium.com/@joegsuero</div>
+                  </div>
+                </a>
 
                 <a
                   href="https://linkedin.com/in/joegsuero"
