@@ -32,16 +32,17 @@ export const PROJECTS: Project[] = [
     title: "CoinIt Platform Landing Page",
     description:
       "Landing Page for the CoinIt Platform, designed for collectors to showcase, trade, and connect over rare items.",
-    tech: ["Next.js", "React", "Typescript", "Supabase"],
+    tech: ["Next.js", "React", "Typescript", "Tailwind", "Supabase"],
     image: "showcase/coinit/4.png",
     live: "https://coinit-one.vercel.app/",
   },
   {
     title: "Gegraphic Information System for Sugarcane Industry",
     description:
-      "GIS designed for help in the desetion making process in the Sugarcane Industry. Include real-time comunication and integration with legacy systemas.",
+      "GIS designed for help in the desition making process in the Sugarcane Industry. Include real-time comunication and integration with legacy systemas.",
     tech: [
       "Vue.js",
+      "Quasar",
       "Typescript",
       "FastAPI",
       "Python",
@@ -54,11 +55,11 @@ export const PROJECTS: Project[] = [
     live: null,
   },
   {
-    title: "Personal Trackers",
+    title: "Personal Tracker",
     description:
-      "A desktop application for have organized all your personal data and integrate it with LLM.",
-    tech: ["React.js", "Rust", "Typescript", "Tauri"],
-    image: "/placeholder.svg",
+      "Organize and keep the control of your data and chat with it using the power of LLM.",
+    tech: ["Rust", "Tauri", "React", "Typescript", "LLM"],
+    image: "/showcase/tracker/tracker.png",
     code: "https://github.com/joegsuero/personal-tracker",
     live: null,
   },
@@ -69,6 +70,5 @@ export const PROJECTS: Project[] = [
     tech: ["React", "Typescript", "Django", "Python"],
     image: "/showcase/email_handler/emails.png",
     code: "https://github.com/joegsuero/email_list_handler",
-
   },
 ];
