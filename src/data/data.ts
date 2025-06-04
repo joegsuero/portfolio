@@ -29,6 +29,31 @@ export const TECH_STACK: TechStack[] = [
 
 export const PROJECTS: Project[] = [
   {
+    title: "CoinIt Platform Landing Page",
+    description:
+      "Landing Page for the CoinIt Platform, designed for collectors to showcase, trade, and connect over rare items.",
+    tech: ["Next.js", "React", "Typescript", "Supabase"],
+    image: "showcase/coinit/4.png",
+    live: "https://coinit-one.vercel.app/",
+  },
+  {
+    title: "Gegraphic Information System for Sugarcane Industry",
+    description:
+      "GIS designed for help in the desetion making process in the Sugarcane Industry. Include real-time comunication and integration with legacy systemas.",
+    tech: [
+      "Vue.js",
+      "Typescript",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "PostGIS",
+      "Geoserver",
+      "PostgresFDW",
+    ],
+    image: "/showcase/sig/sig.png",
+    live: null,
+  },
+  {
     title: "Personal Trackers",
     description:
       "A desktop application for have organized all your personal data and integrate it with LLM.",
@@ -38,26 +63,12 @@ export const PROJECTS: Project[] = [
     live: null,
   },
   {
-    title: "Personal development website",
+    title: "Email Handler",
     description:
-      "A website for a personal development project for share insights and knowledge about mental strength.",
-    tech: ["React.js", "Typescript", "Vite.js"],
-    image: "/placeholder.svg",
-    live: null,
-    // live: "https://guiasmentales.netlify.app/",
-  },
-  {
-    title: "API Gateway",
-    description:
-      "Microservice architecture with API gateway for efficient service communication and load balancing.",
-    tech: ["Go", "Docker", "Kubernetes"],
-    image: "/placeholder.svg",
-  },
-  {
-    title: "Mobile Companion",
-    description:
-      "Cross-platform mobile application with offline capabilities and seamless cloud synchronization.",
-    tech: ["React Native", "GraphQL", "AWS"],
-    image: "/placeholder.svg",
+      "Platform for make it easy for enterpreneurs to manage their email list and newsletter.",
+    tech: ["React", "Typescript", "Django", "Python"],
+    image: "/showcase/email_handler/emails.png",
+    code: "https://github.com/joegsuero/email_list_handler",
+
   },
 ];

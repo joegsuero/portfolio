@@ -41,7 +41,7 @@ const Projects = forwardRef((_props, ref: any) => {
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform group-hover:scale-105"
+                    className="w-full h-56 object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                 </div>
