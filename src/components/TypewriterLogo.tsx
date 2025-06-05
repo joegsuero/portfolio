@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const TypewriterLogo = () => {
   const baseName = "JGS";
@@ -7,6 +8,8 @@ const TypewriterLogo = () => {
   const [isHovering, setIsHovering] = useState(false);
   const fullText = "joegsuero";
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navigate = useNavigate();
+  const pathname = useLocation().pathname;
 
   useEffect(() => {
     return () => {
@@ -57,10 +60,14 @@ const TypewriterLogo = () => {
     <span
       className="bg-blue-900 px-2 py-1 rounded cursor-pointer inline-block min-w-[3rem]"
       onClick={() => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        if (pathname.includes("projects")) {
+          navigate("/");
+        } else {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

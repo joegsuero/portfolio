@@ -1,6 +1,5 @@
 "use client";
 
-import AnimatedBackground from "../../layout/AnimatedBackground";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
@@ -14,8 +13,6 @@ function Main() {
 
   return (
     <main className="bg-black text-white min-h-screen">
-      <AnimatedBackground />
-
       {/* Hero Section */}
       <Hero ref={heroRef} />
 

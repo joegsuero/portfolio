@@ -4,8 +4,11 @@ import { ExternalLink, Github } from "lucide-react";
 import { forwardRef } from "react";
 import PixelButton from "../../../components/PixelButton";
 import { PROJECTS } from "@/data/data";
+import { useNavigate } from "react-router-dom";
 
 const Projects = forwardRef((_props, ref: any) => {
+  const navigate = useNavigate();
+
   return (
     <section
       id="projects"
@@ -92,7 +95,20 @@ const Projects = forwardRef((_props, ref: any) => {
           </div>
 
           <div className="text-center mt-12">
-            <PixelButton variant="secondary">View All Projects</PixelButton>
+            <PixelButton
+              onClick={() => {
+                navigate("projects");
+                setTimeout(() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                }, 300);
+              }}
+              variant="secondary"
+            >
+              View All Projects
+            </PixelButton>
           </div>
         </motion.div>
       </div>

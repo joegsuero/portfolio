@@ -1,13 +1,11 @@
-import Footer from "./layout/Footer";
-import Navbar from "./layout/Navbar";
 import Page from "./components/Page";
+import AnimatedBackground from "./layout/AnimatedBackground";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <AnimatedBackground />
       <Page />
-      <Footer />
     </>
   );
 }
