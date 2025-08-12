@@ -9,17 +9,11 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function ProjectDetail() {
   const { title: slug } = useParams();
 
-  console.log(slug);
-
-  //   const slug = pathname.split("/")[pathname.split("/").length - 1] as string;
   const navigate = useNavigate();
-
-  // Find project by slug or index
   const project =
     PROJECTS.find((p) => p.title === slug || p.title === undefined) ||
     PROJECTS[Number.parseInt(slug as string, 10)];
 
-  // If project not found, show error
   if (!project) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -35,7 +29,6 @@ export default function ProjectDetail() {
     );
   }
 
-  // Go back to projects page
   const goBack = () => {
     navigate("/projects");
   };
@@ -89,37 +82,29 @@ export default function ProjectDetail() {
                 <div className="prose prose-invert max-w-none">
                   <p className="text-gray-300 mb-6">{project.description}</p>
 
-                  {/* Additional details - these would come from an expanded project data structure */}
-                  <p className="text-gray-300 mb-6">
-                    {project.description ||
-                      "This project showcases my skills in developing robust and user-friendly applications. I focused on creating an intuitive interface while ensuring the backend architecture supports all required functionality efficiently."}
-                  </p>
+                  {project.longDescription && (
+                    <p className="text-gray-300 mb-6">
+                      {project.longDescription}
+                    </p>
+                  )}
 
                   <h4 className="font-pixel text-xl text-blue-400 mt-8 mb-4">
                     Key Features
                   </h4>
                   <ul className="list-disc pl-5 text-gray-300 space-y-2">
-                    {project.tech ? (
-                      project.tech.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                      ))
-                    ) : (
-                      <>
-                        <li>Responsive design that works across all devices</li>
-                        <li>Intuitive user interface with smooth animations</li>
-                        <li>Optimized performance for fast load times</li>
-                        <li>Secure authentication and data handling</li>
-                      </>
-                    )}
+                    {project.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
                   </ul>
 
-                  <h4 className="font-pixel text-xl text-blue-400 mt-8 mb-4">
-                    Challenges & Solutions
-                  </h4>
-                  <p className="text-gray-300">
-                    {project.description ||
-                      "One of the main challenges in this project was implementing the real-time data synchronization while maintaining performance. I solved this by utilizing efficient state management patterns and optimizing database queries."}
-                  </p>
+                  {project.challenges && (
+                    <>
+                      <h4 className="font-pixel text-xl text-blue-400 mt-8 mb-4">
+                        Challenges & Solutions
+                      </h4>
+                      <p className="text-gray-300">{project.challenges}</p>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -143,21 +128,21 @@ export default function ProjectDetail() {
                     </div>
                   </div>
 
-                  <div>
-                    <h4 className="text-sm text-gray-400 mb-1">Completed</h4>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-blue-400" />
-                      <span className="text-gray-300">
-                        {project?.code || "2023"}
-                      </span>
+                  {project.completedDate && (
+                    <div>
+                      <h4 className="text-sm text-gray-400 mb-1">Completed</h4>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-blue-400" />
+                        <span className="text-gray-300">
+                          {project.completedDate}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <div>
                     <h4 className="text-sm text-gray-400 mb-1">Role</h4>
-                    <span className="text-gray-300">
-                      {project?.code || "Full Stack Developer"}
-                    </span>
+                    <span className="text-gray-300">{project.role}</span>
                   </div>
 
                   <div className="pt-4 space-y-3">

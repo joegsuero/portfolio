@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /projects
+Allow: /projects/
+Disallow: /projects/*?*
+Sitemap: https://joegsuero.netlify.app/sitemap.xml

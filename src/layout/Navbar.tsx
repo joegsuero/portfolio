@@ -2,10 +2,26 @@
 
 import TypewriterLogo from "@/components/TypewriterLogo";
 import appState from "@/store/store";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSnapshot } from "valtio";
 
 const Navbar = () => {
   const { activeSection } = useSnapshot(appState);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname == "/";
+
+  const navigateToSection = (item: string) => {
+    if (!isHomePage) {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(item)?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      document.getElementById(item)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-blue-900/30 md:px-36">
@@ -17,11 +33,7 @@ const Navbar = () => {
           {["about", "projects", "tech", "contact"].map((item) => (
             <li key={item}>
               <button
-                onClick={() => {
-                  document
-                    .getElementById(item)
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => navigateToSection(item)}
                 className={`font-pixel uppercase text-sm tracking-wider ${
                   activeSection === item
                     ? "text-blue-400"

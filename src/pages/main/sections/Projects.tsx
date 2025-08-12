@@ -9,6 +9,16 @@ import { useNavigate } from "react-router-dom";
 const Projects = forwardRef((_props, ref: any) => {
   const navigate = useNavigate();
 
+  const navigateToProjectDetail = (title: string) => {
+    navigate("/projects/" + title);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 300);
+  };
+
   return (
     <section
       id="projects"
@@ -27,11 +37,13 @@ const Projects = forwardRef((_props, ref: any) => {
             <div className="inline-block bg-blue-900/20 px-3 py-1 rounded-md mb-4">
               <h2 className="font-pixel text-sm text-blue-400">Projects</h2>
             </div>
-            <h3 className="font-pixel text-3xl md:text-4xl">Featured Work</h3>
+            <h3 className="font-pixel text-3xl md:text-4xl">
+              Some Featured Work
+            </h3>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {PROJECTS.map((project, index) => (
+            {PROJECTS.slice(0, 4).map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -40,7 +52,10 @@ const Projects = forwardRef((_props, ref: any) => {
                 viewport={{ once: true, margin: "-50px" }}
                 className="bg-black border border-blue-900/30 rounded-lg overflow-hidden group"
               >
-                <div className="relative">
+                <div
+                  className="relative cursor-pointer"
+                  onClick={() => navigateToProjectDetail(project.title)}
+                >
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -49,7 +64,10 @@ const Projects = forwardRef((_props, ref: any) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                 </div>
                 <div className="p-6">
-                  <h4 className="font-pixel text-xl text-blue-400 mb-2">
+                  <h4
+                    className="font-pixel text-xl text-blue-400 mb-2 cursor-pointer"
+                    onClick={() => navigateToProjectDetail(project.title)}
+                  >
                     {project.title}
                   </h4>
                   <p className="text-gray-400 mb-4">{project.description}</p>

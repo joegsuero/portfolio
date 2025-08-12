@@ -1,10 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "framer-motion";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import PixelButton from "../../../components/PixelButton";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const Contact = forwardRef((_props, ref: any) => {
+  const [contactData, setContactData] = useState({
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const email = "joegsuero@gmail.com";
+    const subject = encodeURIComponent(contactData.subject);
+    const body = encodeURIComponent(contactData.message);
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  };
   return (
     <section
       id="contact"
@@ -35,30 +49,24 @@ const Contact = forwardRef((_props, ref: any) => {
               <h4 className="font-pixel text-xl text-blue-400 mb-6">
                 Send a Message
               </h4>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label
                     htmlFor="name"
                     className="block text-sm font-pixel text-gray-400 mb-1"
                   >
-                    Name
+                    Subject
                   </label>
                   <input
                     type="text"
                     id="name"
-                    className="w-full bg-blue-950/10 border border-blue-900/30 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-pixel text-gray-400 mb-1"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
+                    value={contactData.subject}
+                    onChange={(e) => {
+                      setContactData({
+                        ...contactData,
+                        subject: e.target.value,
+                      });
+                    }}
                     className="w-full bg-blue-950/10 border border-blue-900/30 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
                   />
                 </div>
@@ -71,7 +79,14 @@ const Contact = forwardRef((_props, ref: any) => {
                   </label>
                   <textarea
                     id="message"
-                    rows={4}
+                    rows={7}
+                    value={contactData.message}
+                    onChange={(e) => {
+                      setContactData({
+                        ...contactData,
+                        message: e.target.value,
+                      });
+                    }}
                     className="w-full bg-blue-950/10 border border-blue-900/30 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-600"
                   ></textarea>
                 </div>
