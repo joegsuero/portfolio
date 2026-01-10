@@ -33,26 +33,26 @@ export const TECH_STACK: TechStack[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  {
-    title: "Terminal Playground",
-    description: "Interactive browser-based terminal simulator.",
-    longDescription:
-      "Learn core technology CLI commands without local setup via guided lessons. This project was designed to help beginners get comfortable with terminal commands in a safe, interactive environment.",
-    challenges:
-      "Creating a realistic terminal emulation in the browser required careful handling of user input and command parsing. I solved this by implementing a custom command interpreter with React hooks for state management.",
-    tech: ["React", "Typescript", "Vite"],
-    features: [
-      "Interactive terminal emulator",
-      "Guided lessons for beginners",
-      "Command history",
-      "Responsive design works on all devices",
-    ],
-    image: "showcase/terminal-playground/terminal-playground.png",
-    live: "https://joegsuero.github.io/terminal-playground",
-    completedDate: "Work in progress",
-    role: "Full Stack Developer",
-    code: "https://github.com/joegsuero/terminal-playground",
-  },
+  // {
+  //   title: "Terminal Playground",
+  //   description: "Interactive browser-based terminal simulator.",
+  //   longDescription:
+  //     "Learn core technology CLI commands without local setup via guided lessons. This project was designed to help beginners get comfortable with terminal commands in a safe, interactive environment.",
+  //   challenges:
+  //     "Creating a realistic terminal emulation in the browser required careful handling of user input and command parsing. I solved this by implementing a custom command interpreter with React hooks for state management.",
+  //   tech: ["React", "Typescript", "Vite"],
+  //   features: [
+  //     "Interactive terminal emulator",
+  //     "Guided lessons for beginners",
+  //     "Command history",
+  //     "Responsive design works on all devices",
+  //   ],
+  //   image: "showcase/terminal-playground/terminal-playground.png",
+  //   live: "https://joegsuero.github.io/terminal-playground",
+  //   completedDate: "Work in progress",
+  //   role: "Full Stack Developer",
+  //   code: "https://github.com/joegsuero/terminal-playground",
+  // },
   {
     title: "Gegraphic Information System for Sugarcane Industry",
     description:
@@ -131,58 +131,58 @@ export const PROJECTS: Project[] = [
     completedDate: "Work in progress",
     role: "Full Stack Developer",
   },
-  {
-    title: "CoinIt Platform Landing Page",
-    description: "Landing Page for the CoinIt Platform.",
-    longDescription:
-      "Designed for collectors to showcase, trade, and connect over rare items. The landing page highlights key features of the platform with interactive demos and clear call-to-action sections to drive conversions.",
-    challenges:
-      "Creating performant animations that work across all devices while maintaining SEO best practices required careful optimization. I implemented lazy loading and progressive enhancement strategies.",
-    tech: ["Next.js", "React", "Typescript", "Tailwind", "Supabase"],
-    features: [
-      "Performance-optimized animations",
-      "SEO-optimized content structure",
-      "Mobile-first responsive design",
-    ],
-    image: "showcase/coinit/4.png",
-    live: "https://coinit-one.vercel.app/",
-    completedDate: "January 2024",
-    role: "Frontend Developer",
-  },
-  {
-    title: "Personal Tracker",
-    description: "Organize and keep the control of your data.",
-    longDescription:
-      "Comprehensive personal organization tool for lets you chat with your data using LLM technology. Track habits, expenses, notes and more in a unified interface with powerful search and analysis capabilities.",
-    tech: ["Rust", "Tauri", "React", "Typescript", "LLM"],
-    features: [
-      "Natural language data interaction",
-      "Cross-platform desktop app",
-      "Local-first data storage",
-      "Customizable tracking modules",
-    ],
-    image: "/showcase/tracker/tracker.png",
-    code: "https://github.com/joegsuero/personal-tracker",
-    role: "Full Stack Developer",
-    completedDate: "Work in progress",
-  },
-  {
-    title: "Email Handler",
-    description: "Platform for managing email lists and newsletters.",
-    longDescription:
-      "Comprehensive solution for entrepreneurs to manage their email marketing campaigns. Includes list segmentation, analytics, and template management with a focus on ease of use and deliverability.",
-    challenges:
-      "Ensuring high deliverability required implementing proper email validation, bounce handling, and engagement tracking. I integrated with multiple ESP APIs to provide the best results.",
-    tech: ["React", "Typescript", "Django", "Python"],
-    features: [
-      "Drag-and-drop email builder",
-      "List segmentation",
-      "Campaign analytics",
-      "A/B testing",
-    ],
-    image: "/showcase/email_handler/emails.png",
-    code: "https://github.com/joegsuero/email_list_handler",
-    role: "Full Stack Developer",
-    completedDate: "Work in progress",
-  },
+  // {
+  //   title: "CoinIt Platform Landing Page",
+  //   description: "Landing Page for the CoinIt Platform.",
+  //   longDescription:
+  //     "Designed for collectors to showcase, trade, and connect over rare items. The landing page highlights key features of the platform with interactive demos and clear call-to-action sections to drive conversions.",
+  //   challenges:
+  //     "Creating performant animations that work across all devices while maintaining SEO best practices required careful optimization. I implemented lazy loading and progressive enhancement strategies.",
+  //   tech: ["Next.js", "React", "Typescript", "Tailwind", "Supabase"],
+  //   features: [
+  //     "Performance-optimized animations",
+  //     "SEO-optimized content structure",
+  //     "Mobile-first responsive design",
+  //   ],
+  //   image: "showcase/coinit/4.png",
+  //   live: "https://coinit-one.vercel.app/",
+  //   completedDate: "January 2024",
+  //   role: "Frontend Developer",
+  // },
+  // {
+  //   title: "Personal Tracker",
+  //   description: "Organize and keep the control of your data.",
+  //   longDescription:
+  //     "Comprehensive personal organization tool for lets you chat with your data using LLM technology. Track habits, expenses, notes and more in a unified interface with powerful search and analysis capabilities.",
+  //   tech: ["Rust", "Tauri", "React", "Typescript", "LLM"],
+  //   features: [
+  //     "Natural language data interaction",
+  //     "Cross-platform desktop app",
+  //     "Local-first data storage",
+  //     "Customizable tracking modules",
+  //   ],
+  //   image: "/showcase/tracker/tracker.png",
+  //   code: "https://github.com/joegsuero/personal-tracker",
+  //   role: "Full Stack Developer",
+  //   completedDate: "Work in progress",
+  // },
+  // {
+  //   title: "Email Handler",
+  //   description: "Platform for managing email lists and newsletters.",
+  //   longDescription:
+  //     "Comprehensive solution for entrepreneurs to manage their email marketing campaigns. Includes list segmentation, analytics, and template management with a focus on ease of use and deliverability.",
+  //   challenges:
+  //     "Ensuring high deliverability required implementing proper email validation, bounce handling, and engagement tracking. I integrated with multiple ESP APIs to provide the best results.",
+  //   tech: ["React", "Typescript", "Django", "Python"],
+  //   features: [
+  //     "Drag-and-drop email builder",
+  //     "List segmentation",
+  //     "Campaign analytics",
+  //     "A/B testing",
+  //   ],
+  //   image: "/showcase/email_handler/emails.png",
+  //   code: "https://github.com/joegsuero/email_list_handler",
+  //   role: "Full Stack Developer",
+  //   completedDate: "Work in progress",
+  // },
 ];
