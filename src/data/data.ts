@@ -1,7 +1,7 @@
-interface TechStack {
-  name: string;
-  level: number;
-}
+// interface TechStack {
+//   name: string;
+//   level: number;
+// }
 
 interface Project {
   title: string;
@@ -17,19 +17,62 @@ interface Project {
   role: string;
 }
 
+export type TechCategory =
+  | "Frontend"
+  | "Backend"
+  | "Database"
+  | "DevOps"
+  | "Tools";
+
+export interface TechStack {
+  name: string;
+  years: number; // Años de experiencia
+  category: TechCategory;
+}
+
 export const TECH_STACK: TechStack[] = [
-  { name: "JavaScript", level: 90 },
-  { name: "TypeScript", level: 80 },
-  { name: "React.js", level: 90 },
-  { name: "Next", level: 80 },
-  { name: "Node.js", level: 80 },
-  { name: "Python", level: 90 },
-  { name: "Django", level: 90 },
-  { name: "FastAPI", level: 80 },
-  { name: "REST", level: 90 },
-  { name: "Git", level: 90 },
-  { name: "SQL", level: 85 },
-  { name: "Flutter", level: 75 },
+  // FRONTEND
+  { name: "JavaScript", years: 5, category: "Frontend" },
+  { name: "TypeScript", years: 4, category: "Frontend" },
+  { name: "React.js", years: 5, category: "Frontend" },
+  { name: "Next.js", years: 3, category: "Frontend" },
+  { name: "Tailwind CSS", years: 4, category: "Frontend" },
+  { name: "Framer Motion", years: 2, category: "Frontend" },
+
+  // BACKEND
+  { name: "Node.js", years: 4, category: "Backend" },
+  { name: "Python", years: 5, category: "Backend" },
+  { name: "Django", years: 4, category: "Backend" },
+  { name: "FastAPI", years: 3, category: "Backend" },
+  { name: "Express.js", years: 4, category: "Backend" },
+
+  // DATABASE
+  { name: "SQL", years: 4, category: "Database" },
+  { name: "PostgreSQL", years: 4, category: "Database" },
+  { name: "MongoDB", years: 2, category: "Database" },
+  { name: "Redis", years: 2, category: "Database" },
+
+  // DEVOPS
+  { name: "Docker", years: 3, category: "DevOps" },
+  { name: "Git", years: 5, category: "DevOps" },
+  { name: "GitHub Actions", years: 2, category: "DevOps" },
+
+  // TOOLS
+  { name: "REST APIs", years: 4, category: "Tools" },
+  { name: "GraphQL", years: 2, category: "Tools" },
+  { name: "Vite", years: 2, category: "Tools" },
+];
+
+export const getTechByCategory = (category: TechCategory) => {
+  return TECH_STACK.filter((tech) => tech.category === category);
+};
+
+export const TECH_CATEGORIES: TechCategory[] = [
+  "Frontend",
+  "Backend",
+  "Database",
+  "DevOps",
+  "Tools",
 ];
 
 export const PROJECTS: Project[] = [

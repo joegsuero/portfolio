@@ -25,20 +25,22 @@ const Projects = forwardRef((_props, ref: any) => {
       className="py-32 relative px-6 overflow-hidden"
     >
       <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
-      
+
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
             >
-              <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">Portfolio</h2>
+              <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
+                Portfolio
+              </h2>
             </motion.div>
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -130,7 +132,7 @@ const Projects = forwardRef((_props, ref: any) => {
                   });
                 }, 300);
               }}
-              className="px-10 py-4 bg-secondary text-secondary-foreground border border-white/5 rounded-2xl font-bold glass-dark hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
+              className="px-10 py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               View All Projects
             </button>
