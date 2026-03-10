@@ -24,28 +24,36 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-blue-900/30 md:px-36">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-xl font-pixel tracking-wider text-blue-400">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/50 backdrop-blur-md border-b border-white/5 md:px-36">
+      <div className="container mx-auto px-6 py-5 flex justify-between items-center">
+        <div className="text-2xl font-bold tracking-tight">
           <TypewriterLogo />
         </div>
-        <ul className="hidden md:flex space-x-8">
+        <ul className="hidden md:flex items-center space-x-10">
           {["about", "projects", "tech", "contact"].map((item) => (
             <li key={item}>
               <button
                 onClick={() => navigateToSection(item)}
-                className={`font-pixel uppercase text-sm tracking-wider ${
+                className={`text-sm font-semibold tracking-wide capitalize transition-all duration-300 ${
                   activeSection === item
                     ? "text-blue-400"
-                    : "text-gray-400 hover:text-blue-300"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
                 {item}
               </button>
             </li>
           ))}
+          <li>
+            <button 
+               onClick={() => navigateToSection('contact')}
+               className="px-5 py-2.5 bg-blue-500/10 border border-blue-500/20 rounded-xl text-sm font-bold text-blue-400 glass hover:bg-blue-500 hover:text-slate-950 transition-all"
+            >
+              Resume
+            </button>
+          </li>
         </ul>
-        <button className="md:hidden text-blue-400">
+        <button className="md:hidden text-white p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

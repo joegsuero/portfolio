@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { forwardRef } from "react";
-import PixelButton from "../../../components/PixelButton";
 import { PROJECTS } from "@/data/data";
 import { useNavigate } from "react-router-dom";
 
@@ -23,97 +22,105 @@ const Projects = forwardRef((_props, ref: any) => {
     <section
       id="projects"
       ref={ref}
-      className="py-24 bg-blue-950/20 relative px-2"
+      className="py-32 relative px-6 overflow-hidden"
     >
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+      
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-5xl mx-auto"
-        >
-          <div className="text-center mb-16">
-            <div className="inline-block bg-blue-900/20 px-3 py-1 rounded-md mb-4">
-              <h2 className="font-pixel text-sm text-blue-400">Projects</h2>
-            </div>
-            <h3 className="font-pixel text-3xl md:text-4xl">
-              Some Featured Work
-            </h3>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
+            >
+              <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">Portfolio</h2>
+            </motion.div>
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
+              Some Featured <span className="text-gradient">Work</span>
+            </motion.h3>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
             {PROJECTS.slice(0, 4).map((project, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: index * 0.15 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="bg-black border border-blue-900/30 rounded-lg overflow-hidden group"
+                className="group relative"
               >
-                <div
-                  className="relative cursor-pointer"
-                  onClick={() => navigateToProjectDetail(project.title)}
-                >
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-56 object-cover transition-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                </div>
-                <div className="p-6">
-                  <h4
-                    className="font-pixel text-xl text-blue-400 mb-2 cursor-pointer"
+                <div className="bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden glass-dark h-full flex flex-col transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
+                  <div
+                    className="relative cursor-pointer overflow-hidden aspect-video"
                     onClick={() => navigateToProjectDetail(project.title)}
                   >
-                    {project.title}
-                  </h4>
-                  <p className="text-gray-400 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="text-xs bg-blue-900/30 text-blue-300 px-2 py-1 rounded font-pixel"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
                   </div>
-                  <div className="flex justify-between">
-                    <a
-                      href={project.code ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-pixel text-sm"
+                  <div className="p-8 flex flex-col flex-grow">
+                    <h4
+                      className="text-2xl font-bold text-white mb-3 cursor-pointer group-hover:text-blue-400 transition-colors"
+                      onClick={() => navigateToProjectDetail(project.title)}
                     >
+                      {project.title}
+                    </h4>
+                    <p className="text-gray-400 mb-6 line-clamp-2 text-lg">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="text-xs font-medium bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto flex justify-between items-center pt-6 border-t border-white/5">
                       {project.code && (
-                        <>
-                          <Github className="w-4 h-4" /> Code
-                        </>
+                        <a
+                          href={project.code}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
+                        >
+                          <Github className="w-5 h-5" /> Code
+                        </a>
                       )}
-                    </a>
-                    <a
-                      href={project.live ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-pixel text-sm"
-                    >
                       {project.live && (
-                        <>
-                          <ExternalLink className="w-4 h-4" /> Live Demo
-                        </>
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-400 hover:text-blue-300 flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
+                        >
+                          Live Demo <ExternalLink className="w-4 h-4" />
+                        </a>
                       )}
-                    </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <PixelButton
+          <div className="text-center mt-20">
+            <button
               onClick={() => {
                 navigate("projects");
                 setTimeout(() => {
@@ -123,12 +130,12 @@ const Projects = forwardRef((_props, ref: any) => {
                   });
                 }, 300);
               }}
-              variant="secondary"
+              className="px-10 py-4 bg-secondary text-secondary-foreground border border-white/5 rounded-2xl font-bold glass-dark hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
             >
               View All Projects
-            </PixelButton>
+            </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

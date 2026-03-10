@@ -54,9 +54,9 @@ export const PROJECTS: Project[] = [
   //   code: "https://github.com/joegsuero/terminal-playground",
   // },
   {
-    title: "Gegraphic Information System for Sugarcane Industry",
+    title: "Geographic Information System for Sugarcane Industry",
     description:
-      "GIS designed for help in the desition making process in the Sugarcane Industry.",
+      "GIS designed for help in the decision making process in the Sugarcane Industry.",
     longDescription:
       "This comprehensive GIS system includes real-time communication and integration with legacy systems. It provides spatial analysis tools specifically tailored for the sugarcane industry, helping optimize planting, harvesting and logistics.",
     challenges:
