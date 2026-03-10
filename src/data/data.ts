@@ -33,10 +33,10 @@ export interface TechStack {
 export const TECH_STACK: TechStack[] = [
   // FRONTEND
   { name: "JavaScript", years: 5, category: "Frontend" },
-  { name: "TypeScript", years: 4, category: "Frontend" },
+  { name: "TypeScript", years: 5, category: "Frontend" },
   { name: "React.js", years: 5, category: "Frontend" },
   { name: "Next.js", years: 3, category: "Frontend" },
-  { name: "Tailwind CSS", years: 4, category: "Frontend" },
+  { name: "Tailwind CSS", years: 5, category: "Frontend" },
   { name: "Framer Motion", years: 2, category: "Frontend" },
 
   // BACKEND
@@ -44,23 +44,27 @@ export const TECH_STACK: TechStack[] = [
   { name: "Python", years: 5, category: "Backend" },
   { name: "Django", years: 4, category: "Backend" },
   { name: "FastAPI", years: 3, category: "Backend" },
-  { name: "Express.js", years: 4, category: "Backend" },
 
   // DATABASE
-  { name: "SQL", years: 4, category: "Database" },
-  { name: "PostgreSQL", years: 4, category: "Database" },
+  { name: "SQL", years: 5, category: "Database" },
+  { name: "PostgreSQL", years: 5, category: "Database" },
+  { name: "PostgreFDW", years: 4, category: "Database" },
   { name: "MongoDB", years: 2, category: "Database" },
-  { name: "Redis", years: 2, category: "Database" },
+  { name: "Redis", years: 3, category: "Database" },
 
   // DEVOPS
   { name: "Docker", years: 3, category: "DevOps" },
   { name: "Git", years: 5, category: "DevOps" },
-  { name: "GitHub Actions", years: 2, category: "DevOps" },
+  { name: "GitHub Actions", years: 4, category: "DevOps" },
+  { name: "Nginx", years: 5, category: "DevOps" },
+  { name: "Linux", years: 5, category: "DevOps" },
 
   // TOOLS
-  { name: "REST APIs", years: 4, category: "Tools" },
+  { name: "REST APIs", years: 5, category: "Tools" },
   { name: "GraphQL", years: 2, category: "Tools" },
-  { name: "Vite", years: 2, category: "Tools" },
+  { name: "Vite", years: 5, category: "Tools" },
+  { name: "Trello", years: 5, category: "Tools" },
+  { name: "Slack", years: 5, category: "Tools" },
 ];
 
 export const getTechByCategory = (category: TechCategory) => {
