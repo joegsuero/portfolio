@@ -4,16 +4,23 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Filter, ExternalLink, Github } from "lucide-react";
 import { PROJECTS } from "@/data/data";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const ProjectsPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Read a pre-applied filter coming from the Tech page portal animation
+  const incomingFilter: string | undefined = location.state?.techFilter;
+
   // Get unique tech categories from all projects
   const allTechCategories = Array.from(
     new Set(PROJECTS.flatMap((project) => project.tech)),
   ).sort();
 
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>(
+    incomingFilter ? [incomingFilter] : [],
+  );
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
 
   // Filter projects when selected filters change
@@ -196,7 +203,11 @@ const ProjectsPage = () => {
                           {project.tech.map((tech, i) => (
                             <span
                               key={i}
-                              className="text-xs font-medium bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-full"
+                              className={`text-xs font-medium px-3 py-1 rounded-full transition-colors ${
+                                selectedFilters.includes(tech)
+                                  ? "bg-blue-500/20 border border-blue-500/40 text-blue-300"
+                                  : "bg-white/5 border border-white/10 text-gray-300"
+                              }`}
                             >
                               {tech}
                             </span>
