@@ -33,6 +33,7 @@ const Hero = forwardRef((_props, ref: any) => {
 
   return (
     <section
+      id="hero"
       ref={ref}
       className="h-screen flex flex-col justify-center relative overflow-hidden pt-16 lg:px-48 md:px-36 px-6"
     >
@@ -44,7 +45,7 @@ const Hero = forwardRef((_props, ref: any) => {
         className="container mx-auto px-4 z-10"
       >
         <div className="max-w-4xl">
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
           >
@@ -52,8 +53,8 @@ const Hero = forwardRef((_props, ref: any) => {
               Software Engineer
             </h2>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             variants={itemVariants}
             className="text-5xl md:text-8xl font-bold mb-8 leading-[1.1] tracking-tight"
           >
@@ -61,19 +62,16 @@ const Hero = forwardRef((_props, ref: any) => {
             <span className="block text-gradient">García Suero</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-gray-400 mb-10 max-w-xl text-lg md:text-xl leading-relaxed"
           >
-            Crafting high-performance digital solutions with 4 years of expertise. 
-            I specialize in building scalable applications that bridge the gap 
-            between complex logic and human-centric design.
+            Crafting high-performance digital solutions with 4 years of
+            expertise. I specialize in building scalable applications that
+            bridge the gap between complex logic and human-centric design.
           </motion.p>
 
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-wrap gap-6"
-          >
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
             <button
               onClick={() =>
                 document
@@ -98,12 +96,16 @@ const Hero = forwardRef((_props, ref: any) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
-        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+        onClick={() =>
+          document
+            .getElementById("about")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
       >
         <ChevronDown className="text-blue-400 w-8 h-8 opacity-50 hover:opacity-100 transition-opacity" />
       </motion.div>

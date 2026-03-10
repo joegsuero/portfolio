@@ -9,7 +9,7 @@ import useScrollSections from "@/hooks/useScrollSections";
 
 function Main() {
   const { heroRef, aboutRef, projectsRef, techRef, contactRef } =
-    useScrollSections(["hero", "about", "project", "contact", "tech"]);
+    useScrollSections(["hero", "about", "projects", "tech", "contact"]);
 
   return (
     <main className="bg-black text-white min-h-screen">
