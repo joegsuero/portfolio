@@ -44,6 +44,7 @@
     "about": "sobre mí",
     "projects": "proyectos",
     "tech": "tecnologías",
+    "blog": "blog",
     "contact": "contacto",
     "resume": "Currículum"
   },
@@ -57,8 +58,10 @@
     "medium": "Medium",
     "description": "Compartiendo conocimientos, ideas y experiencias de mi trayectoria en desarrollo de software.",
     "pageDescription": "Explora todos mis artículos publicados en Medium. Encuentra temas que te interesen y profundiza en mis pensamientos y experiencias.",
+    "pageTitle": "Últimos Artículos",
     "readMore": "Leer Artículo",
     "viewAll": "Ver Todos los Artículos",
+    "viewOnMedium": "Ver Todos en Medium",
     "errorMessage": "Asegúrate de actualizar tu nombre de usuario de Medium en el componente"
   },
   "projectsData": {

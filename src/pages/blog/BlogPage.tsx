@@ -120,7 +120,7 @@ const BlogPage = () => {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl md:text-5xl font-bold mb-6 text-white"
               >
-                All <span className="text-gradient">Articles</span>
+                {t('blog.pageTitle', 'Latest')} <span className="text-gradient">{t('blog.medium', 'Articles')}</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -239,6 +239,28 @@ const BlogPage = () => {
                   </motion.div>
                 ))}
               </div>
+            )}
+
+            {/* Medium Link Section */}
+            {!loading && posts.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-center mt-16"
+              >
+                <a
+                  href="https://joegsuero.medium.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                >
+                  {t('blog.viewOnMedium', 'View All on Medium')} <ExternalLink className="w-5 h-5" />
+                </a>
+                <p className="text-gray-400 text-sm mt-4">
+                  {t('blog.pageDescription', 'Explore all my published articles on Medium')}
+                </p>
+              </motion.div>
             )}
           </motion.div>
         </div>

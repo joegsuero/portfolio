@@ -44,6 +44,7 @@
     "about": "about",
     "projects": "projects",
     "tech": "tech",
+    "blog": "blog",
     "contact": "contact",
     "resume": "Resume"
   },
@@ -57,8 +58,10 @@
     "medium": "Medium",
     "description": "Sharing knowledge, insights and experiences from my journey in software development.",
     "pageDescription": "Explore all my published articles on Medium. Find topics that interest you and dive deeper into my thoughts and experiences.",
+    "pageTitle": "Latest Articles",
     "readMore": "Read Article",
     "viewAll": "View All Articles",
+    "viewOnMedium": "View All on Medium",
     "errorMessage": "Make sure to update your Medium username in the component"
   },
   "projectsData": {

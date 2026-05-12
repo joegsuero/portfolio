@@ -49,6 +49,7 @@ const en = {
     about: "about",
     projects: "projects",
     tech: "tech",
+    blog: "blog",
     contact: "contact",
     resume: "Resume"
   },
@@ -156,6 +157,7 @@ const es = {
     about: "sobre mí",
     projects: "proyectos",
     tech: "tecnologías",
+    blog: "blog",
     contact: "contacto",
     resume: "Currículum"
   },
