@@ -51,6 +51,16 @@
     "description": "Building digital excellence with precision and passion.",
     "copyright": "José Daniel García Suero"
   },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest Articles from",
+    "medium": "Medium",
+    "description": "Sharing knowledge, insights and experiences from my journey in software development.",
+    "pageDescription": "Explore all my published articles on Medium. Find topics that interest you and dive deeper into my thoughts and experiences.",
+    "readMore": "Read Article",
+    "viewAll": "View All Articles",
+    "errorMessage": "Make sure to update your Medium username in the component"
+  },
   "projectsData": {
     "sig": {
       "title": "Geographic Information System for Sugarcane Industry",

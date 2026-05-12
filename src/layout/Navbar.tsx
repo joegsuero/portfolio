@@ -32,7 +32,7 @@ const Navbar = () => {
           <TypewriterLogo />
         </div>
         <ul className="hidden md:flex items-center space-x-10">
-          {["about", "projects", "tech", "contact"].map((item) => (
+          {["about", "projects", "tech", "blog", "contact"].map((item) => (
             <li key={item}>
               <button
                 onClick={() => navigateToSection(item)}

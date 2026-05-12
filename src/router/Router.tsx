@@ -4,6 +4,7 @@ import { switchRoutes } from "./routes";
 import Main from "@/pages/main/Main";
 import ProjectsPage from "@/pages/projects/Projects";
 import ProjectDetail from "@/pages/projects/ProjectDetail";
+import BlogPage from "@/pages/blog/BlogPage";
 import Navbar from "@/layout/Navbar";
 import Footer from "@/layout/Footer";
 
@@ -15,6 +16,7 @@ const Router: React.FC = () => {
         <Route path={switchRoutes.root} element={<Main />} />
         <Route path={switchRoutes.projects} element={<ProjectsPage />} />
         <Route path={switchRoutes.projectsDetail} element={<ProjectDetail />} />
+        <Route path={switchRoutes.blog} element={<BlogPage />} />
       </Routes>
       <Footer />
     </HashRouter>

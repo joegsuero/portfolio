@@ -51,6 +51,16 @@
     "description": "Construyendo excelencia digital con precisión y pasión.",
     "copyright": "José Daniel García Suero"
   },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Últimos Artículos de",
+    "medium": "Medium",
+    "description": "Compartiendo conocimientos, ideas y experiencias de mi trayectoria en desarrollo de software.",
+    "pageDescription": "Explora todos mis artículos publicados en Medium. Encuentra temas que te interesen y profundiza en mis pensamientos y experiencias.",
+    "readMore": "Leer Artículo",
+    "viewAll": "Ver Todos los Artículos",
+    "errorMessage": "Asegúrate de actualizar tu nombre de usuario de Medium en el componente"
+  },
   "projectsData": {
     "sig": {
       "title": "Sistema de Información Geográfica para la Industria Azucarera",
