@@ -135,7 +135,7 @@ function VerticalBranch({
 
               {/* Badge */}
               <motion.div
-                className="flex items-center rounded-lg"
+                className="flex items-center rounded-lg -translate-x-24"
                 style={{
                   gap: S.techGap,
                   paddingLeft: S.techPaddingX + S.techTickWidth,
@@ -147,7 +147,6 @@ function VerticalBranch({
                 }}
                 whileHover={
                   {
-                    x: 5,
                     background: `${color}18`,
                     borderColor: `${color}40`,
                   } as any
@@ -327,7 +326,7 @@ const Tech = forwardRef((_props, ref: any) => {
               className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
             >
               <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
-                {t('tech.title')}
+                {t("tech.title")}
               </h2>
             </motion.div>
             <motion.h3
@@ -337,7 +336,10 @@ const Tech = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              {t('tech.subtitle').split('&')[0]} <span className="text-gradient">{t('tech.subtitle').split('&')[1]}</span>
+              {t("tech.subtitle").split("&")[0]}{" "}
+              <span className="text-gradient">
+                {t("tech.subtitle").split("&")[1]}
+              </span>
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -346,7 +348,7 @@ const Tech = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-gray-400 max-w-2xl mx-auto text-lg"
             >
-              {t('tech.description')}
+              {t("tech.description")}
             </motion.p>
           </div>
 
