@@ -2,8 +2,10 @@
 import { motion } from "framer-motion";
 import React, { forwardRef, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Contact = forwardRef((_props, ref: any) => {
+  const { t } = useTranslation();
   const [contactData, setContactData] = useState({
     subject: "",
     message: "",
@@ -30,33 +32,32 @@ const Contact = forwardRef((_props, ref: any) => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
             >
-              <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">Connect</h2>
+              <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">{t('contact.title')}</h2>
             </motion.div>
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              Get In <span className="text-gradient">Touch</span>
+              {t('contact.subtitle').split(' ')[0]} <span className="text-gradient">{t('contact.subtitle').split(' ')[1]}</span>
             </motion.h3>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg leading-relaxed"
             >
-              Interested in working together or just want to say hi? 
-              Feel free to reach out through any of the channels below.
+              {t('contact.description')}
             </motion.p>
           </div>
 
@@ -69,7 +70,7 @@ const Contact = forwardRef((_props, ref: any) => {
               className="bg-slate-900/40 border border-white/5 rounded-3xl p-10 glass-dark"
             >
               <h4 className="text-2xl font-bold text-white mb-8">
-                Send a Message
+                {t('contact.sendMessage')}
               </h4>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
@@ -77,7 +78,7 @@ const Contact = forwardRef((_props, ref: any) => {
                     htmlFor="name"
                     className="block text-sm font-semibold text-gray-400 mb-2 ml-1"
                   >
-                    Subject
+                    {t('contact.subject')}
                   </label>
                   <input
                     type="text"
@@ -98,7 +99,7 @@ const Contact = forwardRef((_props, ref: any) => {
                     htmlFor="message"
                     className="block text-sm font-semibold text-gray-400 mb-2 ml-1"
                   >
-                    Message
+                    {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
@@ -118,7 +119,7 @@ const Contact = forwardRef((_props, ref: any) => {
                   type="submit" 
                   className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
-                  Send Message
+                  {t('contact.sendButton')}
                 </button>
               </form>
             </motion.div>
@@ -131,7 +132,7 @@ const Contact = forwardRef((_props, ref: any) => {
               className="bg-slate-900/40 border border-white/5 rounded-3xl p-10 glass-dark flex flex-col"
             >
               <h4 className="text-2xl font-bold text-white mb-8">
-                Connect With Me
+                {t('contact.connectWithMe')}
               </h4>
               <div className="space-y-6 flex-grow">
                 <a
@@ -143,7 +144,7 @@ const Contact = forwardRef((_props, ref: any) => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">
-                      Email
+                      {t('contact.email')}
                     </div>
                     <div className="text-gray-300 font-medium group-hover:text-white transition-colors">joegsuero@gmail.com</div>
                   </div>
@@ -160,7 +161,7 @@ const Contact = forwardRef((_props, ref: any) => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">
-                      GitHub
+                      {t('contact.github')}
                     </div>
                     <div className="text-gray-300 font-medium group-hover:text-white transition-colors">github.com/joegsuero</div>
                   </div>
@@ -177,7 +178,7 @@ const Contact = forwardRef((_props, ref: any) => {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">
-                      LinkedIn
+                      {t('contact.linkedin')}
                     </div>
                     <div className="text-gray-300 font-medium group-hover:text-white transition-colors">linkedin.com/in/joegsuero</div>
                   </div>
@@ -186,12 +187,12 @@ const Contact = forwardRef((_props, ref: any) => {
 
               <div className="mt-8 pt-8 border-t border-white/5">
                 <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
-                  Availability
+                  {t('contact.availability')}
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
                   <div className="text-gray-300 font-medium">
-                    Available for new opportunities
+                    {t('contact.available')}
                   </div>
                 </div>
               </div>

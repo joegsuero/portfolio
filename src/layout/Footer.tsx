@@ -1,7 +1,10 @@
 import TypewriterLogo from "@/components/TypewriterLogo";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="py-12 border-t border-white/5 bg-slate-950/50 md:px-36">
       <div className="container mx-auto px-6">
@@ -11,7 +14,7 @@ const Footer = () => {
               <TypewriterLogo />
             </div>
             <p className="text-gray-500 text-sm max-w-xs text-center md:text-left">
-              Building digital excellence with precision and passion.
+              {t('footer.description')}
             </p>
           </div>
 
@@ -41,7 +44,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="text-gray-500 text-xs font-medium">
-              &copy; {new Date().getFullYear()} José Daniel García Suero.
+              &copy; {new Date().getFullYear()} {t('footer.copyright')}.
             </div>
           </div>
         </div>

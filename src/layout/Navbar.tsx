@@ -4,8 +4,10 @@ import TypewriterLogo from "@/components/TypewriterLogo";
 import appState from "@/store/store";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSnapshot } from "valtio";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const { activeSection } = useSnapshot(appState);
   const location = useLocation();
   const navigate = useNavigate();
@@ -40,16 +42,16 @@ const Navbar = () => {
                     : "text-gray-400 hover:text-white"
                 }`}
               >
-                {item}
+                {t(`navbar.${item}`)}
               </button>
             </li>
           ))}
           <li>
-            <button 
+            <button
                onClick={() => navigateToSection('contact')}
                className="px-5 py-2.5 bg-blue-500/10 border border-blue-500/20 rounded-xl text-sm font-bold text-blue-400 glass hover:bg-blue-500 hover:text-slate-950 transition-all"
             >
-              Resume
+              {t('navbar.resume')}
             </button>
           </li>
         </ul>

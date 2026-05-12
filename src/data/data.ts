@@ -24,6 +24,8 @@ export type TechCategory =
   | "DevOps"
   | "Tools";
 
+export type TechCategoryKey = keyof typeof TECH_CATEGORY_TRANSLATIONS;
+
 export interface TechStack {
   name: string;
   years: number; // Años de experiencia
@@ -78,6 +80,14 @@ export const TECH_CATEGORIES: TechCategory[] = [
   "DevOps",
   "Tools",
 ];
+
+export const TECH_CATEGORY_TRANSLATIONS = {
+  Frontend: "techCategories.Frontend",
+  Backend: "techCategories.Backend",
+  Database: "techCategories.Database",
+  DevOps: "techCategories.DevOps",
+  Tools: "techCategories.Tools",
+};
 
 export const PROJECTS: Project[] = [
   // {

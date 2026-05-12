@@ -4,8 +4,10 @@ import { ExternalLink, Github } from "lucide-react";
 import { forwardRef } from "react";
 import { PROJECTS } from "@/data/data";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Projects = forwardRef((_props, ref: any) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const navigateToProjectDetail = (title: string) => {
@@ -37,7 +39,7 @@ const Projects = forwardRef((_props, ref: any) => {
               className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
             >
               <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
-                Portfolio
+                {t('projects.title')}
               </h2>
             </motion.div>
             <motion.h3
@@ -47,7 +49,7 @@ const Projects = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Some Featured <span className="text-gradient">Work</span>
+              {t('projects.subtitle').split(' ')[0]} <span className="text-gradient">{t('projects.subtitle').split(' ').slice(1).join(' ')}</span>
             </motion.h3>
           </div>
 
@@ -74,15 +76,21 @@ const Projects = forwardRef((_props, ref: any) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
                   </div>
                   <div className="p-8 flex flex-col flex-grow">
-                    <h4
-                      className="text-2xl font-bold text-white mb-3 cursor-pointer group-hover:text-blue-400 transition-colors"
-                      onClick={() => navigateToProjectDetail(project.title)}
-                    >
-                      {project.title}
-                    </h4>
-                    <p className="text-gray-400 mb-6 line-clamp-2 text-lg">
-                      {project.description}
-                    </p>
+                     <h4
+                       className="text-2xl font-bold text-white mb-3 cursor-pointer group-hover:text-blue-400 transition-colors"
+                       onClick={() => navigateToProjectDetail(project.title)}
+                     >
+                       {project.title === "Geographic Information System for Sugarcane Industry" ? t('projectsData.sig.title') :
+                        project.title === "Django Generator" ? t('projectsData.djangoGenerator.title') :
+                        project.title === "Django ERD Designer" ? t('projectsData.djangoErdDesigner.title') :
+                        project.title}
+                     </h4>
+                     <p className="text-gray-400 mb-6 line-clamp-2 text-lg">
+                       {project.title === "Geographic Information System for Sugarcane Industry" ? t('projectsData.sig.description') :
+                        project.title === "Django Generator" ? t('projectsData.djangoGenerator.description') :
+                        project.title === "Django ERD Designer" ? t('projectsData.djangoErdDesigner.description') :
+                        project.description}
+                     </p>
                     <div className="flex flex-wrap gap-2 mb-8">
                       {project.tech.map((tech, i) => (
                         <span
@@ -101,7 +109,7 @@ const Projects = forwardRef((_props, ref: any) => {
                           rel="noopener noreferrer"
                           className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
                         >
-                          <Github className="w-5 h-5" /> Code
+                          <Github className="w-5 h-5" /> {t('projects.code')}
                         </a>
                       )}
                       {project.live && (
@@ -111,7 +119,7 @@ const Projects = forwardRef((_props, ref: any) => {
                           rel="noopener noreferrer"
                           className="text-blue-400 hover:text-blue-300 flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
                         >
-                          Live Demo <ExternalLink className="w-4 h-4" />
+                          {t('projects.liveDemo')} <ExternalLink className="w-4 h-4" />
                         </a>
                       )}
                     </div>
@@ -134,7 +142,7 @@ const Projects = forwardRef((_props, ref: any) => {
               }}
               className="px-10 py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              View All Projects
+              {t('projects.viewAll')}
             </button>
           </div>
         </div>

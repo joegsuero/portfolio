@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const About = forwardRef((_props, ref: any) => {
+  const { t } = useTranslation();
+
   return (
     <section id="about" ref={ref} className="py-32 relative px-6 overflow-hidden">
       {/* Decorative background element */}
@@ -18,17 +21,17 @@ const About = forwardRef((_props, ref: any) => {
             className="flex flex-col md:flex-row gap-16 items-center"
           >
             <div className="flex-1 order-2 md:order-1">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
               >
-                <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">About Me</h2>
+                <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">{t('about.title')}</h2>
               </motion.div>
               
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -39,40 +42,32 @@ const About = forwardRef((_props, ref: any) => {
               </motion.h3>
 
               <div className="space-y-6">
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
                   className="text-gray-400 text-lg leading-relaxed"
                 >
-                  Hello! I'm Jose, a passionate software engineer with 
-                  <span className="text-white font-medium"> 4 years of experience </span> 
-                  building robust and scalable applications. I specialize in 
-                  creating efficient solutions that solve real-world problems.
+                  {t('about.paragraph1')}
                 </motion.p>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                   viewport={{ once: true }}
                   className="text-gray-400 text-lg leading-relaxed"
                 >
-                  My journey in software development has equipped me with a 
-                  diverse skill set and a deep understanding of modern development 
-                  practices. I'm constantly learning and adapting to new 
-                  technologies to stay at the forefront of the industry.
+                  {t('about.paragraph2')}
                 </motion.p>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                   viewport={{ once: true }}
                   className="text-gray-400 text-lg leading-relaxed"
                 >
-                  When I'm not coding, you can find me exploring new technologies, 
-                  contributing to open-source projects, or sharing my knowledge 
-                  with the developer community.
+                  {t('about.paragraph3')}
                 </motion.p>
               </div>
             </div>

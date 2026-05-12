@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "role": "Ingeniero de Software",
+    "name": "José Daniel García Suero",
+    "description": "Creando soluciones digitales de alto rendimiento con 4 años de experiencia. Me especializo en construir aplicaciones escalables que unen la brecha entre lógica compleja y diseño centrado en el humano.",
+    "exploreWork": "Explora Mi Trabajo",
+    "getInTouch": "Ponte en Contacto"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "El Desarrollador Detrás del Código",
+    "paragraph1": "¡Hola! Soy Jose, un apasionado ingeniero de software con 4 años de experiencia creando aplicaciones robustas y escalables. Me especializo en crear soluciones eficientes que resuelven problemas del mundo real.",
+    "paragraph2": "Mi trayectoria en desarrollo de software me ha equipado con un conjunto diverso de habilidades y una profunda comprensión de las prácticas modernas de desarrollo. Estoy constantemente aprendiendo y adaptándome a nuevas tecnologías para estar a la vanguardia de la industria.",
+    "paragraph3": "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto, o compartiendo mi conocimiento con la comunidad de desarrolladores."
+  },
+  "tech": {
+    "title": "Herramientas",
+    "subtitle": "Herramientas y Tecnologías",
+    "description": "Una lista curada de tecnologías que uso para dar vida a las ideas. Siempre curioso y evolucionando constantemente mi conjunto de herramientas."
+  },
+  "projects": {
+    "title": "Portafolio",
+    "subtitle": "Algunos Trabajos Destacados",
+    "viewAll": "Ver Todos los Proyectos",
+    "code": "Código",
+    "liveDemo": "Demo en Vivo"
+  },
+  "contact": {
+    "title": "Conectar",
+    "subtitle": "Ponte en Contacto",
+    "description": "¿Interesado en trabajar juntos o solo quieres saludar? No dudes en contactarme a través de cualquiera de los canales a continuación.",
+    "sendMessage": "Enviar un Mensaje",
+    "connectWithMe": "Conecta Conmigo",
+    "email": "Correo",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availability": "Disponibilidad",
+    "available": "Disponible para nuevas oportunidades",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "sendButton": "Enviar Mensaje"
+  },
+  "navbar": {
+    "about": "sobre mí",
+    "projects": "proyectos",
+    "tech": "tecnologías",
+    "contact": "contacto",
+    "resume": "Currículum"
+  },
+  "footer": {
+    "description": "Construyendo excelencia digital con precisión y pasión.",
+    "copyright": "José Daniel García Suero"
+  },
+  "projectsData": {
+    "sig": {
+      "title": "Sistema de Información Geográfica para la Industria Azucarera",
+      "description": "SIG diseñado para ayudar en el proceso de toma de decisiones en la Industria Azucarera.",
+      "longDescription": "Este sistema SIG integral incluye comunicación en tiempo real e integración con sistemas heredados. Proporciona herramientas de análisis espacial específicamente adaptadas para la industria azucarera, ayudando a optimizar la siembra, cosecha y logística.",
+      "challenges": "La integración con múltiples sistemas heredados requirió desarrollar middleware personalizado. El mayor desafío fue asegurar la sincronización de datos en tiempo real en todos los componentes mientras se mantenía el rendimiento.",
+      "features": [
+        "Visualización de datos en tiempo real",
+        "Integración con sistemas heredados",
+        "Herramientas de análisis espacial personalizadas",
+        "Control de acceso basado en roles"
+      ],
+      "role": "Desarrollador Líder"
+    },
+    "djangoGenerator": {
+      "title": "Generador Django",
+      "description": "Genera automáticamente aplicaciones Django desde configuración YAML.",
+      "longDescription": "Este paquete permite generar automáticamente aplicaciones y modelos Django desde un archivo de configuración YAML, agilizando tu proceso de desarrollo definiendo tu estructura de datos de manera declarativa.",
+      "challenges": "Analizar estructuras YAML complejas y generar código Django válido requirió validación y manejo de errores cuidadosos. Implementé un sistema de validación multifase para asegurar que el código generado funcionaría correctamente y un navegador IDE personalizado usando Monaco Editor.",
+      "features": [
+        "Conversión de YAML a modelo Django",
+        "Soporte para relaciones complejas",
+        "Plantillas personalizables",
+        "Validación y reporte de errores"
+      ],
+      "role": "Desarrollador Full Stack"
+    },
+    "djangoErdDesigner": {
+      "title": "Diseñador ERD Django",
+      "description": "Diseñador visual ERD para aplicaciones Django.",
+      "longDescription": "Una herramienta web que permite a los desarrolladores diseñar Diagramas de Entidad-Relación (ERD) visualmente y generar automáticamente aplicaciones Django completas a partir de ellos. La herramienta se conecta con django-generator para transformar el diagrama visual en modelos Django completamente funcionales, migraciones y configuraciones de admin. Soporta todos los tipos de campo de modelo Django, relaciones y patrones comunes de modelo.",
+      "challenges": "El desafío principal fue crear una interfaz intuitiva para relaciones complejas de modelos mientras se aseguraba que el código generado sigue las mejores prácticas de Django. Implementé una interfaz personalizada de arrastrar y soltar con validación en tiempo real y usé un sistema de conversión bidireccional entre el diagrama visual y la estructura de datos subyacente.",
+      "features": [
+        "Constructor de diagramas ERD interactivo con interfaz de arrastrar y soltar",
+        "Soporte para todos los tipos de campo Django y relaciones",
+        "Vista previa de código en tiempo real mientras diseñas",
+        "Exportar a aplicación Django completa vía django-generator",
+        "Importar modelos Django existentes para visualizar",
+        "Plantillas personalizables para patrones comunes",
+        "Capacidades de edición colaborativa"
+      ],
+      "role": "Desarrollador Full Stack"
+    }
+  },
+  "techCategories": {
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Database": "Base de Datos",
+    "DevOps": "DevOps",
+    "Tools": "Herramientas"
+  },
+  "yearsExperience": "años de experiencia"
+}

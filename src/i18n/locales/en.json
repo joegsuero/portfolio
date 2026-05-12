@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "role": "Software Engineer",
+    "name": "José Daniel García Suero",
+    "description": "Crafting high-performance digital solutions with 4 years of expertise. I specialize in building scalable applications that bridge the gap between complex logic and human-centric design.",
+    "exploreWork": "Explore My Work",
+    "getInTouch": "Get in Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "The Developer Behind The Code",
+    "paragraph1": "Hello! I'm Jose, a passionate software engineer with 4 years of experience building robust and scalable applications. I specialize in creating efficient solutions that solve real-world problems.",
+    "paragraph2": "My journey in software development has equipped me with a diverse skill set and a deep understanding of modern development practices. I'm constantly learning and adapting to new technologies to stay at the forefront of the industry.",
+    "paragraph3": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community."
+  },
+  "tech": {
+    "title": "Toolkit",
+    "subtitle": "Tools & Technologies",
+    "description": "A curated list of technologies I use to bring ideas to life. Always curious and constantly evolving my stack."
+  },
+  "projects": {
+    "title": "Portfolio",
+    "subtitle": "Some Featured Work",
+    "viewAll": "View All Projects",
+    "code": "Code",
+    "liveDemo": "Live Demo"
+  },
+  "contact": {
+    "title": "Connect",
+    "subtitle": "Get In Touch",
+    "description": "Interested in working together or just want to say hi? Feel free to reach out through any of the channels below.",
+    "sendMessage": "Send a Message",
+    "connectWithMe": "Connect With Me",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availability": "Availability",
+    "available": "Available for new opportunities",
+    "subject": "Subject",
+    "message": "Message",
+    "sendButton": "Send Message"
+  },
+  "navbar": {
+    "about": "about",
+    "projects": "projects",
+    "tech": "tech",
+    "contact": "contact",
+    "resume": "Resume"
+  },
+  "footer": {
+    "description": "Building digital excellence with precision and passion.",
+    "copyright": "José Daniel García Suero"
+  },
+  "projectsData": {
+    "sig": {
+      "title": "Geographic Information System for Sugarcane Industry",
+      "description": "GIS designed for help in the decision making process in the Sugarcane Industry.",
+      "longDescription": "This comprehensive GIS system includes real-time communication and integration with legacy systems. It provides spatial analysis tools specifically tailored for the sugarcane industry, helping optimize planting, harvesting and logistics.",
+      "challenges": "Integrating with multiple legacy systems required developing custom middleware. The biggest challenge was ensuring real-time data synchronization across all components while maintaining performance.",
+      "features": [
+        "Real-time data visualization",
+        "Integration with legacy systems",
+        "Custom spatial analysis tools",
+        "Role-based access control"
+      ],
+      "role": "Lead Developer"
+    },
+    "djangoGenerator": {
+      "title": "Django Generator",
+      "description": "Automatically generate Django applications from YAML config.",
+      "longDescription": "This package allows you to automatically generate Django applications and models from a YAML configuration file, streamlining your development process by defining your data structure declaratively.",
+      "challenges": "Parsing complex YAML structures and generating valid Django code required careful validation and error handling. I implemented a multi-phase validation system to ensure generated code would work correctly and a custom IDE browser using Monaco Editor.",
+      "features": [
+        "YAML to Django model conversion",
+        "Support for complex relationships",
+        "Customizable templates",
+        "Validation and error reporting"
+      ],
+      "role": "Full Stack Developer"
+    },
+    "djangoErdDesigner": {
+      "title": "Django ERD Designer",
+      "description": "Visual ERD designer for Django applications.",
+      "longDescription": "A web-based tool that allows developers to design Entity-Relationship Diagrams (ERD) visually and automatically generate complete Django applications from them. The tool connects with django-generator to transform the visual diagram into fully functional Django models, migrations, and admin configurations. It supports all Django model field types, relationships, and common model patterns.",
+      "challenges": "The main challenge was creating an intuitive interface for complex model relationships while ensuring the generated code follows Django best practices. I implemented a custom drag-and-drop interface with real-time validation and used a two-way conversion system between the visual diagram and the underlying data structure.",
+      "features": [
+        "Interactive ERD diagram builder with drag-and-drop interface",
+        "Support for all Django field types and relationships",
+        "Real-time code preview as you design",
+        "Export to full Django application via django-generator",
+        "Import existing Django models to visualize",
+        "Customizable templates for common patterns",
+        "Collaborative editing capabilities"
+      ],
+      "role": "Full Stack Developer"
+    }
+  },
+  "techCategories": {
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Database": "Database",
+    "DevOps": "DevOps",
+    "Tools": "Tools"
+  },
+  "yearsExperience": "years of experience"
+}

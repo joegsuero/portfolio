@@ -2,10 +2,12 @@
 import {
   getTechByCategory,
   TECH_CATEGORIES,
+  TECH_CATEGORY_TRANSLATIONS,
   type TechCategory,
 } from "@/data/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { forwardRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const S = {
   rootSize: 140, // px — diámetro del círculo
@@ -40,10 +42,12 @@ function VerticalBranch({
   category,
   index,
   total,
+  t,
 }: {
   category: TechCategory;
   index: number;
   total: number;
+  t: any;
 }) {
   const techs = getTechByCategory(category);
   const color = CATEGORY_COLORS[category];
@@ -93,7 +97,7 @@ function VerticalBranch({
         whileHover={{ scale: 1.07, boxShadow: `0 0 22px ${color}28` }}
         transition={{ type: "spring", stiffness: 380, damping: 18 }}
       >
-        {category}
+        {t(TECH_CATEGORY_TRANSLATIONS[category])}
       </motion.div>
 
       {/* Drop to items */}
@@ -181,9 +185,11 @@ function VerticalBranch({
 function MobileCard({
   category,
   index,
+  t,
 }: {
   category: TechCategory;
   index: number;
+  t: any;
 }) {
   const [open, setOpen] = useState(true);
   const techs = getTechByCategory(category);
@@ -213,7 +219,7 @@ function MobileCard({
             className="font-mono font-bold uppercase tracking-widest"
             style={{ fontSize: 13, color }}
           >
-            {category}
+            {t(TECH_CATEGORY_TRANSLATIONS[category])}
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -296,6 +302,7 @@ function MobileCard({
 
 // ─── Main component ───────────────────────────────────────────────────────────
 const Tech = forwardRef((_props, ref: any) => {
+  const { t } = useTranslation();
   const total = TECH_CATEGORIES.length;
 
   return (
@@ -320,7 +327,7 @@ const Tech = forwardRef((_props, ref: any) => {
               className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
             >
               <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
-                Toolkit
+                {t('tech.title')}
               </h2>
             </motion.div>
             <motion.h3
@@ -330,7 +337,7 @@ const Tech = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              Tools &amp; <span className="text-gradient">Technologies</span>
+              {t('tech.subtitle').split('&')[0]} <span className="text-gradient">{t('tech.subtitle').split('&')[1]}</span>
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -339,8 +346,7 @@ const Tech = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-gray-400 max-w-2xl mx-auto text-lg"
             >
-              A curated list of technologies I use to bring ideas to life.
-              Always curious and constantly evolving my stack.
+              {t('tech.description')}
             </motion.p>
           </div>
 
@@ -372,6 +378,7 @@ const Tech = forwardRef((_props, ref: any) => {
                   category={cat}
                   index={i}
                   total={total}
+                  t={t}
                 />
               ))}
             </div>
@@ -384,7 +391,7 @@ const Tech = forwardRef((_props, ref: any) => {
             <div className="flex flex-col items-center mb-10"></div>
             <div className="grid grid-cols-2 gap-4">
               {TECH_CATEGORIES.map((cat, i) => (
-                <MobileCard key={cat} category={cat} index={i} />
+                <MobileCard key={cat} category={cat} index={i} t={t} />
               ))}
             </div>
           </div>
@@ -418,7 +425,7 @@ const Tech = forwardRef((_props, ref: any) => {
 
             <div className="flex flex-col gap-3">
               {TECH_CATEGORIES.map((cat, i) => (
-                <MobileCard key={cat} category={cat} index={i} />
+                <MobileCard key={cat} category={cat} index={i} t={t} />
               ))}
             </div>
           </div>

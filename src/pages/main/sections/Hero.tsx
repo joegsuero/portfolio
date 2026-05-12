@@ -2,8 +2,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const Hero = forwardRef((_props, ref: any) => {
+  const { t } = useTranslation();
   const { scrollY } = useScroll();
 
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -26,7 +28,7 @@ const Hero = forwardRef((_props, ref: any) => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // custom ease-out-expo
+        ease: [0.16, 1, 0.3, 1] as any, // custom ease-out-expo
       },
     },
   };
@@ -45,14 +47,14 @@ const Hero = forwardRef((_props, ref: any) => {
         className="container mx-auto px-4 z-10"
       >
         <div className="max-w-4xl">
-          <motion.div
-            variants={itemVariants}
-            className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
-          >
-            <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
-              Software Engineer
-            </h2>
-          </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass"
+            >
+              <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
+                {t('hero.role')}
+              </h2>
+            </motion.div>
 
           <motion.h1
             variants={itemVariants}
@@ -66,9 +68,7 @@ const Hero = forwardRef((_props, ref: any) => {
             variants={itemVariants}
             className="text-gray-400 mb-10 max-w-xl text-lg md:text-xl leading-relaxed"
           >
-            Crafting high-performance digital solutions with 4 years of
-            expertise. I specialize in building scalable applications that
-            bridge the gap between complex logic and human-centric design.
+            {t('hero.description')}
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
@@ -80,7 +80,7 @@ const Hero = forwardRef((_props, ref: any) => {
               }
               className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform active:scale-95"
             >
-              Explore My Work
+              {t('hero.exploreWork')}
             </button>
             <button
               onClick={() =>
@@ -90,7 +90,7 @@ const Hero = forwardRef((_props, ref: any) => {
               }
               className="px-8 py-4 bg-secondary text-secondary-foreground border border-white/5 rounded-xl font-semibold glass-dark hover:bg-white/5 transition-all outline-none"
             >
-              Get in Touch
+              {t('hero.getInTouch')}
             </button>
           </motion.div>
         </div>
