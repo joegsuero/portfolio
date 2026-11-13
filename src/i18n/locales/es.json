@@ -1,19 +1,36 @@
 {
   "hero": {
-    "role": "Ingeniero de Software",
-    "description": "Creando soluciones digitales de alto rendimiento con 4 años de experiencia. Me especializo en construir aplicaciones escalables que unen la lógica compleja con un diseño centrado en las personas.",
+    "role": "Ingeniero Full-Stack · Web y Móvil",
+    "description": "Construyo productos web y móviles de principio a fin: backends en Python con Django y FastAPI, e interfaces con React, Next.js y Flutter. En 5 años he liderado una plataforma GIS para la industria azucarera y creado herramientas open source que generan código Django.",
     "exploreWork": "Explora Mi Trabajo",
     "getInTouch": "Ponte en Contacto",
-    "scrollDown": "Ir a la sección Sobre mí"
+    "scrollDown": "Ir a la sección Sobre mí",
+    "statYears": "Años de experiencia",
+    "statProjects": "Proyectos publicados",
+    "statTech": "Tecnologías en mi stack"
   },
   "about": {
     "title": "Sobre Mí",
-    "headingStart": "El Desarrollador Detrás del",
-    "headingHighlight": "Código",
-    "paragraph1": "¡Hola! Soy Jose, un apasionado ingeniero de software con 4 años de experiencia creando aplicaciones robustas y escalables. Me especializo en crear soluciones eficientes que resuelven problemas del mundo real.",
-    "paragraph2": "Mi trayectoria en desarrollo de software me ha dado un conjunto diverso de habilidades y una profunda comprensión de las prácticas modernas de desarrollo. Estoy constantemente aprendiendo y adaptándome a nuevas tecnologías para estar a la vanguardia de la industria.",
-    "paragraph3": "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto o compartiendo mi conocimiento con la comunidad de desarrolladores.",
-    "photoAlt": "Retrato de José Daniel García Suero"
+    "headingStart": "De la base de datos",
+    "headingHighlight": "a la interfaz",
+    "paragraph1": "Soy Jose, ingeniero full-stack con 5 años de experiencia. Me gusta hacerme cargo de un producto desde el modelo de datos hasta la pantalla que usa la gente: la API en Python, la base de datos en PostgreSQL y la interfaz en React, Next.js o Flutter.",
+    "paragraph2": "Gran parte de mi trabajo gira en torno a datos con ubicación. Como desarrollador líder de una plataforma GIS para la industria azucarera, integré sistemas heredados con análisis espacial en tiempo real sobre PostGIS y GeoServer. También me atraen las herramientas para desarrolladores: construyo generadores open source que convierten un archivo YAML o un diagrama visual en una aplicación Django funcional.",
+    "paragraph3": "Escribo sobre lo que aprendo en Medium y estoy abierto a roles full-stack en remoto donde pueda trabajar en backend, web y móvil.",
+    "photoAlt": "Retrato de José Daniel García Suero",
+    "highlights": [
+      {
+        "title": "Desarrollador líder",
+        "text": "Plataforma GIS para la industria azucarera"
+      },
+      {
+        "title": "Open source",
+        "text": "Herramientas de generación de código para Django"
+      },
+      {
+        "title": "Móvil",
+        "text": "Más de 4 años creando apps con Flutter"
+      }
+    ]
   },
   "tech": {
     "title": "Herramientas",
@@ -26,10 +43,10 @@
   },
   "techCategories": {
     "Frontend": "Frontend",
+    "Mobile": "Móvil",
     "Backend": "Backend",
     "Database": "Base de Datos",
-    "DevOps": "DevOps",
-    "Tools": "Herramientas"
+    "DevOps": "DevOps y Herramientas"
   },
   "projects": {
     "title": "Portafolio",
@@ -38,7 +55,11 @@
     "viewAll": "Ver Todos los Proyectos",
     "code": "Código",
     "liveDemo": "Demo en Vivo",
-    "viewDetails": "Ver Detalles"
+    "viewDetails": "Ver Detalles",
+    "featured": "Destacado",
+    "statusInProgress": "En desarrollo",
+    "statusCompleted": "Completado",
+    "statusOpenSource": "Open source"
   },
   "projectsPage": {
     "badge": "Portafolio",
@@ -69,7 +90,12 @@
     "previous": "Anterior",
     "next": "Siguiente",
     "notFoundTitle": "Proyecto No Encontrado",
-    "notFoundText": "No pudimos encontrar el proyecto que buscas."
+    "notFoundText": "No pudimos encontrar el proyecto que buscas.",
+    "problem": "El problema",
+    "approach": "Cómo lo resolví",
+    "outcome": "Resultado",
+    "gallery": "Capturas",
+    "video": "Demo"
   },
   "blog": {
     "title": "Blog",
@@ -97,12 +123,13 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "availability": "Disponibilidad",
-    "available": "Disponible para nuevas oportunidades",
+    "available": "Abierto a roles full-stack en remoto",
     "subject": "Asunto",
     "subjectPlaceholder": "Consulta sobre un proyecto",
     "message": "Mensaje",
     "messagePlaceholder": "Hola Jose, me gustaría hablar sobre...",
-    "sendButton": "Enviar Mensaje"
+    "sendButton": "Enviar Mensaje",
+    "availableStack": "Python · Django · FastAPI · React · Next.js · Flutter"
   },
   "navbar": {
     "about": "Sobre mí",
@@ -115,7 +142,8 @@
     "closeMenu": "Cerrar menú",
     "switchLanguage": "Switch to English",
     "otherLanguage": "EN",
-    "otherLanguageName": "English"
+    "otherLanguageName": "English",
+    "experience": "Experiencia"
   },
   "logo": {
     "title": "Ir al inicio"
@@ -128,6 +156,13 @@
     "sugarcane-gis": {
       "title": "Sistema de Información Geográfica para la Industria Azucarera",
       "description": "SIG diseñado para apoyar la toma de decisiones en la industria azucarera.",
+      "problem": "Los responsables de la industria azucarera necesitaban ver campos, operaciones de cosecha y vehículos en un solo mapa, pero los datos vivían en varios sistemas heredados que no se comunicaban entre sí.",
+      "approach": [
+        "Una capa de middleware que integra los sistemas heredados y mantiene sus datos sincronizados en tiempo real.",
+        "PostgreSQL con PostGIS para las consultas espaciales, y PostgresFDW para consultar las bases de datos externas desde un único punto.",
+        "GeoServer para publicar las capas del mapa, consumidas por un frontend en Vue y Quasar.",
+        "Control de acceso por roles para que cada equipo vea solo los datos que necesita."
+      ],
       "longDescription": "Este sistema SIG integral incluye comunicación en tiempo real e integración con sistemas heredados. Proporciona herramientas de análisis espacial adaptadas específicamente a la industria azucarera, ayudando a optimizar la siembra, la cosecha y la logística.",
       "challenges": "La integración con múltiples sistemas heredados requirió desarrollar middleware personalizado. El mayor desafío fue asegurar la sincronización de datos en tiempo real entre todos los componentes sin sacrificar el rendimiento.",
       "features": [
@@ -141,6 +176,13 @@
     "django-generator": {
       "title": "Django Generator",
       "description": "Genera automáticamente aplicaciones Django desde una configuración YAML.",
+      "problem": "Empezar una app Django implica escribir una y otra vez los mismos modelos, el admin y el código repetitivo, y es fácil equivocarse con las relaciones por el camino.",
+      "approach": [
+        "Un esquema YAML declarativo que describe apps, modelos y sus relaciones.",
+        "Validación en varias fases que detecta errores antes de generar código.",
+        "Un editor en el navegador hecho con Next.js y Monaco Editor para escribir y validar el YAML.",
+        "Plantillas personalizables para el código generado."
+      ],
       "longDescription": "Este paquete permite generar automáticamente aplicaciones y modelos Django desde un archivo de configuración YAML, agilizando el desarrollo al definir la estructura de datos de forma declarativa.",
       "challenges": "Analizar estructuras YAML complejas y generar código Django válido requirió una validación y un manejo de errores cuidadosos. Implementé un sistema de validación multifase para asegurar que el código generado funcione correctamente y un IDE en el navegador usando Monaco Editor.",
       "features": [
@@ -217,5 +259,12 @@
       ],
       "role": "Desarrollador Full Stack"
     }
-  }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "headingStart": "Dónde he",
+    "headingHighlight": "trabajado",
+    "present": "Actualidad"
+  },
+  "experienceData": {}
 }

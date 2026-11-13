@@ -1,15 +1,40 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { PROJECTS, TECH_STACK, YEARS_OF_EXPERIENCE } from "@/data/data";
 
 const Hero = forwardRef((_props, ref: any) => {
   const { t } = useTranslation();
   const { scrollY } = useScroll();
 
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const heroY = useTransform(scrollY, [0, 300], [0, -50]);
+  // Fade relative to the hero's own height: on phones the hero is taller than
+  // the viewport, so a fixed pixel range would hide content still on screen.
+  const heroHeight = useRef(900);
+  useEffect(() => {
+    const measure = () => {
+      if (ref?.current) heroHeight.current = ref.current.offsetHeight;
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [ref]);
+
+  const stats = [
+    { value: `${YEARS_OF_EXPERIENCE}+`, label: t("hero.statYears") },
+    { value: String(PROJECTS.length), label: t("hero.statProjects") },
+    { value: String(TECH_STACK.length), label: t("hero.statTech") },
+  ];
+
+  const heroOpacity = useTransform(scrollY, (y) => {
+    const h = heroHeight.current;
+    return Math.min(1, Math.max(0, 1 - (y - h * 0.45) / (h * 0.45)));
+  });
+  const heroY = useTransform(
+    scrollY,
+    (y) => -50 * Math.min(1, y / heroHeight.current),
+  );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,6 +118,22 @@ const Hero = forwardRef((_props, ref: any) => {
               {t('hero.getInTouch')}
             </button>
           </motion.div>
+
+          <motion.dl
+            variants={itemVariants}
+            className="mt-12 grid grid-cols-3 gap-4 sm:gap-8 max-w-xl border-t border-white/10 pt-8"
+          >
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col-reverse gap-1">
+                <dt className="text-xs sm:text-sm text-gray-400 leading-snug">
+                  {stat.label}
+                </dt>
+                <dd className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </motion.dl>
         </div>
       </motion.div>
 

@@ -5,6 +5,7 @@ import { forwardRef } from "react";
 import { PROJECTS } from "@/data/data";
 import { Link } from "react-router-dom";
 import { useProjectText } from "@/hooks/useProjectText";
+import ProjectBadges from "@/components/ProjectBadges";
 import { useTranslation } from "react-i18next";
 
 const Projects = forwardRef((_props, ref: any) => {
@@ -70,23 +71,26 @@ const Projects = forwardRef((_props, ref: any) => {
                   className={`group relative ${isLast ? lastCardSpan : ""}`}
                 >
                   <div className="bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden glass-dark h-full flex flex-col transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
-                    <Link
-                      to={`/projects/${project.id}`}
-                      className="relative block overflow-hidden aspect-video"
-                      tabIndex={-1}
-                      aria-hidden="true"
-                    >
-                      <img
-                        src={project.image}
-                        alt=""
-                        width={project.imageWidth}
-                        height={project.imageHeight}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
-                    </Link>
+                    <div className="relative">
+                      <ProjectBadges project={project} />
+                      <Link
+                        to={`/projects/${project.id}`}
+                        className="relative block overflow-hidden aspect-video"
+                        tabIndex={-1}
+                        aria-hidden="true"
+                      >
+                        <img
+                          src={project.image}
+                          alt=""
+                          width={project.imageWidth}
+                          height={project.imageHeight}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                      </Link>
+                    </div>
                     <div className="p-8 flex flex-col flex-grow">
                       <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                         <Link to={`/projects/${project.id}`}>{text.title}</Link>

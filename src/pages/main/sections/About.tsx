@@ -2,9 +2,16 @@
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Code2, MapPinned, Smartphone } from "lucide-react";
+
+const HIGHLIGHT_ICONS = [MapPinned, Code2, Smartphone];
 
 const About = forwardRef((_props, ref: any) => {
   const { t } = useTranslation();
+  const highlights = t("about.highlights", { returnObjects: true }) as {
+    title: string;
+    text: string;
+  }[];
 
   return (
     <section id="about" ref={ref} className="py-32 relative px-6 overflow-hidden">
@@ -71,6 +78,28 @@ const About = forwardRef((_props, ref: any) => {
                   {t('about.paragraph3')}
                 </motion.p>
               </div>
+
+              <motion.ul
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ once: true }}
+                className="mt-10 grid sm:grid-cols-3 gap-3"
+              >
+                {highlights.map((item, i) => {
+                  const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
+                  return (
+                    <li
+                      key={item.title}
+                      className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                    >
+                      <Icon className="w-5 h-5 text-blue-400 mb-3" aria-hidden="true" />
+                      <p className="text-sm font-semibold text-white">{item.title}</p>
+                      <p className="text-sm text-gray-400 leading-snug mt-1">{item.text}</p>
+                    </li>
+                  );
+                })}
+              </motion.ul>
             </div>
 
             <motion.div 

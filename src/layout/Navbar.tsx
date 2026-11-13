@@ -1,6 +1,6 @@
 import TypewriterLogo from "@/components/TypewriterLogo";
 import appState from "@/store/store";
-import { RESUME_URL } from "@/data/data";
+import { EXPERIENCE, RESUME_URL } from "@/data/data";
 import { currentLanguage, toggleLanguage } from "@/i18n";
 import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Languages, Menu, X } from "lucide-react";
@@ -9,7 +9,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import { useTranslation } from "react-i18next";
 
-const SECTIONS = ["about", "projects", "tech", "blog", "contact"] as const;
+const SECTIONS = [
+  "about",
+  // The Experience link only appears once there is experience data
+  ...(EXPERIENCE.length > 0 ? ["experience"] : []),
+  "projects",
+  "tech",
+  "blog",
+  "contact",
+];
 
 const Navbar = () => {
   const { t } = useTranslation();

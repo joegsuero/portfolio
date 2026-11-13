@@ -1,50 +1,41 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { actions } from "@/store/store";
-import { createRef, useEffect } from "react";
+import { createRef, useEffect, useMemo } from "react";
 
 type SectionRefs<T extends readonly string[]> = {
   [K in T[number] as `${K}Ref`]: React.RefObject<HTMLDivElement>;
 };
 
+/**
+ * Creates one ref per section and keeps `activeSection` in the store in sync
+ * with the scroll position. Sections that aren't rendered are skipped.
+ */
 const useScrollSections = <T extends readonly string[]>(
-  sections: T
+  sections: T,
 ): SectionRefs<T> => {
-  const refs = sections.reduce((acc, section) => {
-    return {
-      ...acc,
-      [`${section}Ref`]: createRef<HTMLDivElement>(),
-    };
-  }, {} as SectionRefs<T>);
+  const refs = useMemo(
+    () =>
+      Object.fromEntries(
+        sections.map((s) => [`${s}Ref`, createRef<HTMLDivElement>()]),
+      ) as SectionRefs<T>,
+    [sections],
+  );
 
   useEffect(() => {
+    const byName = refs as Record<string, React.RefObject<HTMLDivElement>>;
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
-      let activeSection = sections[0];
-
-      for (let i = 1; i < sections.length; i++) {
-        const currentSection = sections[i];
-        const currentRef = (refs as any)[`${currentSection}Ref`];
-
-        if (
-          currentRef.current &&
-          scrollPosition >= currentRef.current.offsetTop &&
-          (i === sections.length - 1 ||
-            ((refs as any)[`${sections[i + 1]}Ref`]?.current &&
-              scrollPosition <
-                (refs as any)[`${sections[i + 1]}Ref`].current!.offsetTop))
-        ) {
-          activeSection = currentSection;
-          break;
-        }
+      const position = window.scrollY + 120;
+      let active: string = sections[0];
+      for (const section of sections) {
+        const el = byName[`${section}Ref`]?.current;
+        if (el && el.offsetTop <= position) active = section;
       }
-
-      actions.setActiveSection(activeSection);
+      actions.setActiveSection(active);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sections]);
+  }, [sections, refs]);
 
   return refs;
 };

@@ -30,10 +30,10 @@ const S = {
 
 const CATEGORY_COLORS: Record<TechCategory, string> = {
   Frontend: "#60a5fa",
+  Mobile: "#22d3ee",
   Backend: "#a78bfa",
   Database: "#34d399",
   DevOps: "#fb923c",
-  Tools: "#f472b6",
 };
 
 // ─── Desktop: Vertical Branch ────────────────────────────────────────────────
@@ -125,7 +125,11 @@ function VerticalBranch({
             >
               <motion.div
                 className="flex items-center rounded-lg"
-                title={t("tech.yearsLong", { count: tech.years })}
+                title={
+                  tech.years !== undefined
+                    ? t("tech.yearsLong", { count: tech.years })
+                    : undefined
+                }
                 style={{
                   gap: S.techGap,
                   padding: `${S.techPaddingY}px ${S.techPaddingX}px`,
@@ -142,18 +146,20 @@ function VerticalBranch({
                 >
                   {tech.name}
                 </span>
-                <span
-                  className="font-mono rounded-md flex-shrink-0 font-semibold"
-                  style={{
-                    fontSize: S.badgeFontSize,
-                    padding: "3px 7px",
-                    background: `${color}18`,
-                    color,
-                    border: `1px solid ${color}30`,
-                  }}
-                >
-                  {t("tech.yearsShort", { count: tech.years })}
-                </span>
+                {tech.years !== undefined && (
+                  <span
+                    className="font-mono rounded-md flex-shrink-0 font-semibold"
+                    style={{
+                      fontSize: S.badgeFontSize,
+                      padding: "3px 7px",
+                      background: `${color}18`,
+                      color,
+                      border: `1px solid ${color}30`,
+                    }}
+                  >
+                    {t("tech.yearsShort", { count: tech.years })}
+                  </span>
+                )}
               </motion.div>
             </motion.li>
           ))}
@@ -260,18 +266,20 @@ function MobileCard({
                       {tech.name}
                     </span>
                   </div>
-                  <span
-                    className="font-mono font-semibold rounded-md"
-                    style={{
-                      fontSize: 11,
-                      padding: "3px 8px",
-                      background: `${color}18`,
-                      color,
-                      border: `1px solid ${color}30`,
-                    }}
-                  >
-                    {t("tech.yearsShort", { count: tech.years })}
-                  </span>
+                  {tech.years !== undefined && (
+                    <span
+                      className="font-mono font-semibold rounded-md"
+                      style={{
+                        fontSize: 11,
+                        padding: "3px 8px",
+                        background: `${color}18`,
+                        color,
+                        border: `1px solid ${color}30`,
+                      }}
+                    >
+                      {t("tech.yearsShort", { count: tech.years })}
+                    </span>
+                  )}
                 </motion.div>
               ))}
             </div>

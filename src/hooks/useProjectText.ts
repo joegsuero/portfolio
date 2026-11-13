@@ -7,6 +7,12 @@ export interface ProjectText {
   description: string;
   longDescription?: string;
   challenges?: string;
+  /** Case study: what was wrong before the project. */
+  problem?: string;
+  /** Case study: key decisions, one per item. */
+  approach: string[];
+  /** Case study: measurable result. */
+  outcome?: string;
   features: string[];
   role: string;
 }
@@ -20,14 +26,21 @@ export const useProjectText = () => {
       const base = `projectsData.${project.id}`;
       const optional = (field: string) =>
         i18n.exists(`${base}.${field}`) ? t(`${base}.${field}`) : undefined;
-      const features = t(`${base}.features`, { returnObjects: true });
+      const list = (field: string) => {
+        if (!i18n.exists(`${base}.${field}`)) return [];
+        const value = t(`${base}.${field}`, { returnObjects: true });
+        return Array.isArray(value) ? (value as string[]) : [];
+      };
 
       return {
         title: t(`${base}.title`),
         description: t(`${base}.description`),
         longDescription: optional("longDescription"),
         challenges: optional("challenges"),
-        features: Array.isArray(features) ? (features as string[]) : [],
+        problem: optional("problem"),
+        approach: list("approach"),
+        outcome: optional("outcome"),
+        features: list("features"),
         role: t(`${base}.role`),
       };
     },

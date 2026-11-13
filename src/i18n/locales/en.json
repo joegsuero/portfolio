@@ -1,19 +1,36 @@
 {
   "hero": {
-    "role": "Software Engineer",
-    "description": "Crafting high-performance digital solutions with 4 years of expertise. I specialize in building scalable applications that bridge the gap between complex logic and human-centric design.",
+    "role": "Full-Stack Engineer · Web & Mobile",
+    "description": "I build web and mobile products end to end: Python backends with Django and FastAPI, and interfaces in React, Next.js and Flutter. Over 5 years I've led a GIS platform for the sugarcane industry and built open-source tools that generate Django code.",
     "exploreWork": "Explore My Work",
     "getInTouch": "Get in Touch",
-    "scrollDown": "Scroll to the About section"
+    "scrollDown": "Scroll to the About section",
+    "statYears": "Years of experience",
+    "statProjects": "Published projects",
+    "statTech": "Technologies in my stack"
   },
   "about": {
     "title": "About Me",
-    "headingStart": "The Developer Behind",
-    "headingHighlight": "The Code",
-    "paragraph1": "Hello! I'm Jose, a passionate software engineer with 4 years of experience building robust and scalable applications. I specialize in creating efficient solutions that solve real-world problems.",
-    "paragraph2": "My journey in software development has equipped me with a diverse skill set and a deep understanding of modern development practices. I'm constantly learning and adapting to new technologies to stay at the forefront of the industry.",
-    "paragraph3": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.",
-    "photoAlt": "Portrait of José Daniel García Suero"
+    "headingStart": "From database",
+    "headingHighlight": "to interface",
+    "paragraph1": "I'm Jose, a full-stack engineer with 5 years of experience. I like owning a product from the data model to the screen people actually use: the API in Python, the database in PostgreSQL and the interface in React, Next.js or Flutter.",
+    "paragraph2": "Much of my work deals with data that has a location. As lead developer of a GIS platform for the sugarcane industry, I integrated legacy systems with real-time spatial analysis on PostGIS and GeoServer. I'm also drawn to developer tooling: I build open-source generators that turn a YAML file or a visual diagram into a working Django app.",
+    "paragraph3": "I write about what I learn on Medium, and I'm currently open to remote full-stack roles where I can work across backend, web and mobile.",
+    "photoAlt": "Portrait of José Daniel García Suero",
+    "highlights": [
+      {
+        "title": "Lead developer",
+        "text": "GIS platform for the sugarcane industry"
+      },
+      {
+        "title": "Open source",
+        "text": "Code generation tools for Django"
+      },
+      {
+        "title": "Mobile",
+        "text": "4+ years building apps with Flutter"
+      }
+    ]
   },
   "tech": {
     "title": "Toolkit",
@@ -26,10 +43,10 @@
   },
   "techCategories": {
     "Frontend": "Frontend",
+    "Mobile": "Mobile",
     "Backend": "Backend",
     "Database": "Database",
-    "DevOps": "DevOps",
-    "Tools": "Tools"
+    "DevOps": "DevOps & Tooling"
   },
   "projects": {
     "title": "Portfolio",
@@ -38,7 +55,11 @@
     "viewAll": "View All Projects",
     "code": "Code",
     "liveDemo": "Live Demo",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "featured": "Featured",
+    "statusInProgress": "In progress",
+    "statusCompleted": "Completed",
+    "statusOpenSource": "Open source"
   },
   "projectsPage": {
     "badge": "Portfolio",
@@ -69,7 +90,12 @@
     "previous": "Previous",
     "next": "Next",
     "notFoundTitle": "Project Not Found",
-    "notFoundText": "We couldn't find the project you're looking for."
+    "notFoundText": "We couldn't find the project you're looking for.",
+    "problem": "The problem",
+    "approach": "My approach",
+    "outcome": "Outcome",
+    "gallery": "Screenshots",
+    "video": "Demo"
   },
   "blog": {
     "title": "Blog",
@@ -97,12 +123,13 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "availability": "Availability",
-    "available": "Available for new opportunities",
+    "available": "Open to remote full-stack roles",
     "subject": "Subject",
     "subjectPlaceholder": "Project inquiry",
     "message": "Message",
     "messagePlaceholder": "Hi Jose, I'd like to talk about...",
-    "sendButton": "Send Message"
+    "sendButton": "Send Message",
+    "availableStack": "Python · Django · FastAPI · React · Next.js · Flutter"
   },
   "navbar": {
     "about": "About",
@@ -115,7 +142,8 @@
     "closeMenu": "Close menu",
     "switchLanguage": "Cambiar a español",
     "otherLanguage": "ES",
-    "otherLanguageName": "Español"
+    "otherLanguageName": "Español",
+    "experience": "Experience"
   },
   "logo": {
     "title": "Go to home"
@@ -128,6 +156,13 @@
     "sugarcane-gis": {
       "title": "Geographic Information System for Sugarcane Industry",
       "description": "GIS designed to support decision making in the sugarcane industry.",
+      "problem": "Decision makers in the sugarcane industry needed to see fields, harvest operations and vehicles on a single map, but the data lived in several legacy systems that didn't talk to each other.",
+      "approach": [
+        "A middleware layer that integrates the legacy systems and keeps their data synchronized in real time.",
+        "PostgreSQL with PostGIS for spatial queries, and PostgresFDW to query the external databases from one place.",
+        "GeoServer to publish the map layers, consumed by a Vue and Quasar front end.",
+        "Role-based access control so each team only sees the data it needs."
+      ],
       "longDescription": "This comprehensive GIS system includes real-time communication and integration with legacy systems. It provides spatial analysis tools specifically tailored for the sugarcane industry, helping optimize planting, harvesting and logistics.",
       "challenges": "Integrating with multiple legacy systems required developing custom middleware. The biggest challenge was ensuring real-time data synchronization across all components while maintaining performance.",
       "features": [
@@ -141,6 +176,13 @@
     "django-generator": {
       "title": "Django Generator",
       "description": "Automatically generate Django applications from YAML config.",
+      "problem": "Starting a Django app means writing the same models, admin and boilerplate over and over, and it's easy to get relationships wrong along the way.",
+      "approach": [
+        "A declarative YAML schema that describes apps, models and their relationships.",
+        "Multi-phase validation that catches errors before any code is generated.",
+        "A browser editor built with Next.js and Monaco Editor to write and validate the YAML.",
+        "Customizable templates for the generated code."
+      ],
       "longDescription": "This package allows you to automatically generate Django applications and models from a YAML configuration file, streamlining your development process by defining your data structure declaratively.",
       "challenges": "Parsing complex YAML structures and generating valid Django code required careful validation and error handling. I implemented a multi-phase validation system to ensure generated code would work correctly and a custom IDE browser using Monaco Editor.",
       "features": [
@@ -217,5 +259,12 @@
       ],
       "role": "Full Stack Developer"
     }
-  }
+  },
+  "experience": {
+    "title": "Experience",
+    "headingStart": "Where I've",
+    "headingHighlight": "worked",
+    "present": "Present"
+  },
+  "experienceData": {}
 }

@@ -197,6 +197,9 @@ const Contact = forwardRef((_props, ref: any) => {
                     {t('contact.available')}
                   </div>
                 </div>
+                <p className="mt-2 ml-[1.375rem] text-sm text-gray-400">
+                  {t('contact.availableStack')}
+                </p>
               </div>
             </motion.div>
           </div>

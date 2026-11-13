@@ -96,6 +96,23 @@ export default function ProjectDetail() {
               />
             </div>
 
+            {project.video && (
+              <section className="mb-16">
+                <h2 className="text-xl font-bold text-white mb-6">
+                  {t("projectDetail.video")}
+                </h2>
+                <video
+                  src={project.video}
+                  poster={project.image}
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full rounded-3xl border border-white/5 bg-slate-900/40"
+                />
+              </section>
+            )}
+
             {/* Project details grid */}
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               {/* Main content */}
@@ -108,6 +125,40 @@ export default function ProjectDetail() {
                     {text.longDescription ?? text.description}
                   </p>
                 </section>
+
+                {text.problem && (
+                  <section>
+                    <h2 className="text-xl font-bold text-white mb-6">
+                      {t("projectDetail.problem")}
+                    </h2>
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                      {text.problem}
+                    </p>
+                  </section>
+                )}
+
+                {text.approach.length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-bold text-white mb-6">
+                      {t("projectDetail.approach")}
+                    </h2>
+                    <ol className="space-y-4">
+                      {text.approach.map((step, i) => (
+                        <li key={step} className="flex gap-4">
+                          <span
+                            className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-sm font-bold flex items-center justify-center"
+                            aria-hidden="true"
+                          >
+                            {i + 1}
+                          </span>
+                          <span className="text-gray-300 leading-relaxed pt-1">
+                            {step}
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                )}
 
                 {text.features.length > 0 && (
                   <section>
@@ -127,13 +178,25 @@ export default function ProjectDetail() {
                   </section>
                 )}
 
-                {text.challenges && (
+                {/* "Challenges" is superseded by the step-by-step approach */}
+                {text.challenges && text.approach.length === 0 && (
                   <section>
                     <h2 className="text-xl font-bold text-white mb-6">
                       {t("projectDetail.challenges")}
                     </h2>
                     <p className="text-gray-400 text-lg leading-relaxed">
                       {text.challenges}
+                    </p>
+                  </section>
+                )}
+
+                {text.outcome && (
+                  <section className="rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-6">
+                    <h2 className="text-xl font-bold text-white mb-3">
+                      {t("projectDetail.outcome")}
+                    </h2>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      {text.outcome}
                     </p>
                   </section>
                 )}
@@ -222,6 +285,35 @@ export default function ProjectDetail() {
                 </div>
               </aside>
             </div>
+
+            {project.gallery && project.gallery.length > 0 && (
+              <section className="mb-16">
+                <h2 className="text-xl font-bold text-white mb-6">
+                  {t("projectDetail.gallery")}
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {project.gallery.map((img, i) => (
+                    <a
+                      key={img.src}
+                      href={img.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500/30 transition-colors"
+                    >
+                      <img
+                        src={img.src}
+                        alt={`${text.title} — ${i + 2}`}
+                        width={img.width}
+                        height={img.height}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-auto"
+                      />
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Navigation between projects */}
             <nav className="border-t border-white/5 pt-12 mt-12 flex items-center justify-between gap-4">

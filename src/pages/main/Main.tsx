@@ -1,16 +1,32 @@
-"use client";
-
 import Hero from "./sections/Hero";
 import About from "./sections/About";
+import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Tech from "./sections/Tech";
 import Blog from "./sections/Blog";
 import Contact from "./sections/Contact";
 import useScrollSections from "@/hooks/useScrollSections";
 
+const SECTIONS = [
+  "hero",
+  "about",
+  "experience",
+  "projects",
+  "tech",
+  "blog",
+  "contact",
+] as const;
+
 function Main() {
-  const { heroRef, aboutRef, projectsRef, techRef, blogRef, contactRef } =
-    useScrollSections(["hero", "about", "projects", "tech", "blog", "contact"]);
+  const {
+    heroRef,
+    aboutRef,
+    experienceRef,
+    projectsRef,
+    techRef,
+    blogRef,
+    contactRef,
+  } = useScrollSections(SECTIONS);
 
   return (
     <main className="bg-black text-white min-h-screen">
@@ -19,6 +35,9 @@ function Main() {
 
       {/* About Section */}
       <About ref={aboutRef} />
+
+      {/* Experience (hidden while EXPERIENCE is empty) */}
+      <Experience ref={experienceRef} />
 
       {/* Projects Section */}
       <Projects ref={projectsRef} />
