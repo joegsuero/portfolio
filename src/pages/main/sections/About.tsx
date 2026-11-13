@@ -38,7 +38,8 @@ const About = forwardRef((_props, ref: any) => {
                 viewport={{ once: true }}
                 className="text-4xl md:text-5xl font-bold mb-8 leading-tight"
               >
-                The Developer Behind <span className="text-gradient">The Code</span>
+                {t("about.headingStart")}{" "}
+                <span className="text-gradient">{t("about.headingHighlight")}</span>
               </motion.h3>
 
               <div className="space-y-6">
@@ -87,8 +88,12 @@ const About = forwardRef((_props, ref: any) => {
                 <div className="aspect-[4/5] bg-slate-900 rounded-2xl overflow-hidden relative shadow-2xl glass-dark">
                   <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500" />
                   <img 
-                    src="Profile.jpeg" 
-                    alt="Jose Garcia Suero"
+                    src="/profile.webp"
+                    alt={t("about.photoAlt")}
+                    width={805}
+                    height={1080}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>

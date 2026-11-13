@@ -11,7 +11,7 @@ export const switchRoutes: SwitchRoutes = {
   root: "/",
   about: "/about",
   projects: "/projects",
-  projectsDetail: "/projects/:title",
+  projectsDetail: "/projects/:slug",
   blog: "/blog",
   missing: "*",
 };

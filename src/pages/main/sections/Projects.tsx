@@ -1,24 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { forwardRef } from "react";
 import { PROJECTS } from "@/data/data";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useProjectText } from "@/hooks/useProjectText";
 import { useTranslation } from "react-i18next";
 
 const Projects = forwardRef((_props, ref: any) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const getText = useProjectText();
 
-  const navigateToProjectDetail = (title: string) => {
-    navigate("/projects/" + title);
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 300);
-  };
+  const featured = PROJECTS.slice(0, 4);
+  // 3 projects -> 3 columns on desktop; an odd last card spans the full row on tablet
+  const gridCols =
+    featured.length === 3 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2";
+  const lastCardSpan =
+    featured.length % 2 === 1
+      ? featured.length === 3
+        ? "md:col-span-2 lg:col-span-1"
+        : "md:col-span-2"
+      : "";
 
   return (
     <section
@@ -49,101 +51,103 @@ const Projects = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              {t('projects.subtitle').split(' ')[0]} <span className="text-gradient">{t('projects.subtitle').split(' ').slice(1).join(' ')}</span>
+              {t("projects.headingStart")}{" "}
+              <span className="text-gradient">{t("projects.headingHighlight")}</span>
             </motion.h3>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
-            {PROJECTS.slice(0, 4).map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.15 }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="group relative"
-              >
-                <div className="bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden glass-dark h-full flex flex-col transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
-                  <div
-                    className="relative cursor-pointer overflow-hidden aspect-video"
-                    onClick={() => navigateToProjectDetail(project.title)}
-                  >
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
-                  </div>
-                  <div className="p-8 flex flex-col flex-grow">
-                     <h4
-                       className="text-2xl font-bold text-white mb-3 cursor-pointer group-hover:text-blue-400 transition-colors"
-                       onClick={() => navigateToProjectDetail(project.title)}
-                     >
-                       {project.title === "Geographic Information System for Sugarcane Industry" ? t('projectsData.sig.title') :
-                        project.title === "Django Generator" ? t('projectsData.djangoGenerator.title') :
-                        project.title === "Django ERD Designer" ? t('projectsData.djangoErdDesigner.title') :
-                        project.title}
-                     </h4>
-                     <p className="text-gray-400 mb-6 line-clamp-2 text-lg">
-                       {project.title === "Geographic Information System for Sugarcane Industry" ? t('projectsData.sig.description') :
-                        project.title === "Django Generator" ? t('projectsData.djangoGenerator.description') :
-                        project.title === "Django ERD Designer" ? t('projectsData.djangoErdDesigner.description') :
-                        project.description}
-                     </p>
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="text-xs font-medium bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="mt-auto flex justify-between items-center pt-6 border-t border-white/5">
-                      {project.code && (
-                        <a
-                          href={project.code}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
-                        >
-                          <Github className="w-5 h-5" /> {t('projects.code')}
-                        </a>
-                      )}
-                      {project.live && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
+          <div className={`grid gap-8 lg:gap-10 ${gridCols}`}>
+            {featured.map((project, index) => {
+              const text = getText(project);
+              const isLast = index === featured.length - 1;
+              return (
+                <motion.article
+                  key={project.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.15 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className={`group relative ${isLast ? lastCardSpan : ""}`}
+                >
+                  <div className="bg-slate-900/40 border border-white/5 rounded-3xl overflow-hidden glass-dark h-full flex flex-col transition-all duration-500 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
+                    <Link
+                      to={`/projects/${project.id}`}
+                      className="relative block overflow-hidden aspect-video"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    >
+                      <img
+                        src={project.image}
+                        alt=""
+                        width={project.imageWidth}
+                        height={project.imageHeight}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                    </Link>
+                    <div className="p-8 flex flex-col flex-grow">
+                      <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                        <Link to={`/projects/${project.id}`}>{text.title}</Link>
+                      </h4>
+                      <p className="text-gray-400 mb-6 line-clamp-2 text-lg">
+                        {text.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="text-xs font-medium bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-auto flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-white/5">
+                        <div className="flex gap-5">
+                          {project.code && (
+                            <a
+                              href={project.code}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
+                            >
+                              <Github className="w-5 h-5" /> {t("projects.code")}
+                            </a>
+                          )}
+                          {project.live && (
+                            <a
+                              href={project.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
+                            >
+                              <ExternalLink className="w-4 h-4" /> {t("projects.liveDemo")}
+                            </a>
+                          )}
+                        </div>
+                        <Link
+                          to={`/projects/${project.id}`}
                           className="text-blue-400 hover:text-blue-300 flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
                         >
-                          {t('projects.liveDemo')} <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
+                          {t("projects.viewDetails")} <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.article>
+              );
+            })}
           </div>
 
           <div className="text-center mt-20">
-            <button
-              onClick={() => {
-                navigate("projects");
-                setTimeout(() => {
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                }, 300);
-              }}
-              className="px-10 py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            <Link
+              to="/projects"
+              className="inline-block px-10 py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              {t('projects.viewAll')}
-            </button>
+              {t("projects.viewAll")}
+            </Link>
           </div>
         </div>
       </div>

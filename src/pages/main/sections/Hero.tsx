@@ -37,7 +37,7 @@ const Hero = forwardRef((_props, ref: any) => {
     <section
       id="hero"
       ref={ref}
-      className="h-screen flex flex-col justify-center relative overflow-hidden pt-16 lg:px-48 md:px-36 px-6"
+      className="min-h-[100svh] flex flex-col justify-center relative overflow-hidden pt-28 pb-20 md:pt-16 md:pb-0 lg:px-48 md:px-36 px-6"
     >
       <motion.div
         style={{ opacity: heroOpacity, y: heroY }}
@@ -71,7 +71,7 @@ const Hero = forwardRef((_props, ref: any) => {
             {t('hero.description')}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 sm:gap-6">
             <button
               onClick={() =>
                 document
@@ -96,19 +96,21 @@ const Hero = forwardRef((_props, ref: any) => {
         </div>
       </motion.div>
 
-      <motion.div
+      <motion.button
+        type="button"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+        className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
         onClick={() =>
           document
             .getElementById("about")
             ?.scrollIntoView({ behavior: "smooth" })
         }
+        aria-label={t("hero.scrollDown")}
       >
         <ChevronDown className="text-blue-400 w-8 h-8 opacity-50 hover:opacity-100 transition-opacity" />
-      </motion.div>
+      </motion.button>
     </section>
   );
 });

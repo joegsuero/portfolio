@@ -25,7 +25,6 @@ const S = {
   techPaddingX: 12, // px
   techPaddingY: 8, // px
   techGap: 10, // px
-  techTickWidth: 14, // px — guión horizontal desde la spine
 };
 // ════════════════════════════════════════════════════════════════════
 
@@ -53,7 +52,8 @@ function VerticalBranch({
   const color = CATEGORY_COLORS[category];
   const isFirst = index === 0;
   const isLast = index === total - 1;
-  const spineHeight = techs.length * S.techItemHeight - 12;
+  // Spine runs from the top of the list to the centre of the last badge
+  const spineHeight = (techs.length - 1) * S.techItemHeight + S.techItemHeight / 2;
 
   return (
     <motion.div
@@ -105,56 +105,39 @@ function VerticalBranch({
         style={{ width: 1, height: S.catLineHeight, background: `${color}38` }}
       />
 
-      {/* Tech items */}
+      {/* Tech items — badges centred on the branch spine */}
       <div className="relative">
         <div
           className="absolute left-1/2 top-0 -translate-x-1/2"
-          style={{ width: 1, height: spineHeight, background: `${color}25` }}
+          style={{ width: 1, height: spineHeight, background: `${color}30` }}
         />
 
-        <div className="flex flex-col items-center">
+        <ul className="relative flex flex-col items-center">
           {techs.map((tech, i) => (
-            <motion.div
+            <motion.li
               key={tech.name}
-              className="relative flex items-center"
+              className="flex items-center"
               style={{ height: S.techItemHeight }}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.08 + i * 0.05 }}
               viewport={{ once: true }}
             >
-              {/* Tick from spine */}
-              <div
-                className="absolute left-1/2 -translate-x-full"
-                style={{
-                  width: S.techTickWidth,
-                  height: 1,
-                  background: `${color}45`,
-                }}
-              />
-
-              {/* Badge */}
               <motion.div
-                className="flex items-center rounded-lg -translate-x-24"
+                className="flex items-center rounded-lg"
+                title={t("tech.yearsLong", { count: tech.years })}
                 style={{
                   gap: S.techGap,
-                  paddingLeft: S.techPaddingX + S.techTickWidth,
-                  paddingRight: S.techPaddingX,
-                  paddingTop: S.techPaddingY,
-                  paddingBottom: S.techPaddingY,
-                  background: `${color}08`,
-                  border: `1px solid ${color}20`,
+                  padding: `${S.techPaddingY}px ${S.techPaddingX}px`,
+                  // Opaque base so the spine doesn't show through the badge
+                  background: `linear-gradient(${color}0d, ${color}0d), #05070d`,
+                  border: `1px solid ${color}25`,
                 }}
-                whileHover={
-                  {
-                    background: `${color}18`,
-                    borderColor: `${color}40`,
-                  } as any
-                }
+                whileHover={{ borderColor: `${color}55` } as any}
                 transition={{ duration: 0.15 }}
               >
                 <span
-                  className="font-mono text-white/70 whitespace-nowrap"
+                  className="font-mono text-white/75 whitespace-nowrap"
                   style={{ fontSize: S.techFontSize }}
                 >
                   {tech.name}
@@ -169,12 +152,12 @@ function VerticalBranch({
                     border: `1px solid ${color}30`,
                   }}
                 >
-                  {tech.years}y
+                  {t("tech.yearsShort", { count: tech.years })}
                 </span>
               </motion.div>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
     </motion.div>
   );
@@ -287,7 +270,7 @@ function MobileCard({
                       border: `1px solid ${color}30`,
                     }}
                   >
-                    {tech.years}y
+                    {t("tech.yearsShort", { count: tech.years })}
                   </span>
                 </motion.div>
               ))}
@@ -336,9 +319,9 @@ const Tech = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              {t("tech.subtitle").split("&")[0]}{" "}
+              {t("tech.headingStart")}{" "}
               <span className="text-gradient">
-                {t("tech.subtitle").split("&")[1]}
+                {t("tech.headingHighlight")}
               </span>
             </motion.h3>
             <motion.p

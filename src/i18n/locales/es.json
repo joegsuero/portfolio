@@ -1,112 +1,28 @@
 {
   "hero": {
     "role": "Ingeniero de Software",
-    "name": "José Daniel García Suero",
-    "description": "Creando soluciones digitales de alto rendimiento con 4 años de experiencia. Me especializo en construir aplicaciones escalables que unen la brecha entre lógica compleja y diseño centrado en el humano.",
+    "description": "Creando soluciones digitales de alto rendimiento con 4 años de experiencia. Me especializo en construir aplicaciones escalables que unen la lógica compleja con un diseño centrado en las personas.",
     "exploreWork": "Explora Mi Trabajo",
-    "getInTouch": "Ponte en Contacto"
+    "getInTouch": "Ponte en Contacto",
+    "scrollDown": "Ir a la sección Sobre mí"
   },
   "about": {
     "title": "Sobre Mí",
-    "subtitle": "El Desarrollador Detrás del Código",
+    "headingStart": "El Desarrollador Detrás del",
+    "headingHighlight": "Código",
     "paragraph1": "¡Hola! Soy Jose, un apasionado ingeniero de software con 4 años de experiencia creando aplicaciones robustas y escalables. Me especializo en crear soluciones eficientes que resuelven problemas del mundo real.",
-    "paragraph2": "Mi trayectoria en desarrollo de software me ha equipado con un conjunto diverso de habilidades y una profunda comprensión de las prácticas modernas de desarrollo. Estoy constantemente aprendiendo y adaptándome a nuevas tecnologías para estar a la vanguardia de la industria.",
-    "paragraph3": "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto, o compartiendo mi conocimiento con la comunidad de desarrolladores."
+    "paragraph2": "Mi trayectoria en desarrollo de software me ha dado un conjunto diverso de habilidades y una profunda comprensión de las prácticas modernas de desarrollo. Estoy constantemente aprendiendo y adaptándome a nuevas tecnologías para estar a la vanguardia de la industria.",
+    "paragraph3": "Cuando no estoy programando, puedes encontrarme explorando nuevas tecnologías, contribuyendo a proyectos de código abierto o compartiendo mi conocimiento con la comunidad de desarrolladores.",
+    "photoAlt": "Retrato de José Daniel García Suero"
   },
   "tech": {
     "title": "Herramientas",
-    "subtitle": "Herramientas y Tecnologías",
-    "description": "Una lista curada de tecnologías que uso para dar vida a las ideas. Siempre curioso y evolucionando constantemente mi conjunto de herramientas."
-  },
-  "projects": {
-    "title": "Portafolio",
-    "subtitle": "Algunos Trabajos Destacados",
-    "viewAll": "Ver Todos los Proyectos",
-    "code": "Código",
-    "liveDemo": "Demo en Vivo"
-  },
-  "contact": {
-    "title": "Conectar",
-    "subtitle": "Ponte en Contacto",
-    "description": "¿Interesado en trabajar juntos o solo quieres saludar? No dudes en contactarme a través de cualquiera de los canales a continuación.",
-    "sendMessage": "Enviar un Mensaje",
-    "connectWithMe": "Conecta Conmigo",
-    "email": "Correo",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "availability": "Disponibilidad",
-    "available": "Disponible para nuevas oportunidades",
-    "subject": "Asunto",
-    "message": "Mensaje",
-    "sendButton": "Enviar Mensaje"
-  },
-  "navbar": {
-    "about": "sobre mí",
-    "projects": "proyectos",
-    "tech": "tecnologías",
-    "blog": "blog",
-    "contact": "contacto",
-    "resume": "Currículum"
-  },
-  "footer": {
-    "description": "Construyendo excelencia digital con precisión y pasión.",
-    "copyright": "José Daniel García Suero"
-  },
-  "blog": {
-    "title": "Blog",
-    "subtitle": "Últimos Artículos de",
-    "medium": "Medium",
-    "description": "Compartiendo conocimientos, ideas y experiencias de mi trayectoria en desarrollo de software.",
-    "pageDescription": "Explora todos mis artículos publicados en Medium. Encuentra temas que te interesen y profundiza en mis pensamientos y experiencias.",
-    "pageTitle": "Últimos Artículos",
-    "readMore": "Leer Artículo",
-    "viewAll": "Ver Todos los Artículos",
-    "viewOnMedium": "Ver Todos en Medium",
-    "errorMessage": "Asegúrate de actualizar tu nombre de usuario de Medium en el componente"
-  },
-  "projectsData": {
-    "sig": {
-      "title": "Sistema de Información Geográfica para la Industria Azucarera",
-      "description": "SIG diseñado para ayudar en el proceso de toma de decisiones en la Industria Azucarera.",
-      "longDescription": "Este sistema SIG integral incluye comunicación en tiempo real e integración con sistemas heredados. Proporciona herramientas de análisis espacial específicamente adaptadas para la industria azucarera, ayudando a optimizar la siembra, cosecha y logística.",
-      "challenges": "La integración con múltiples sistemas heredados requirió desarrollar middleware personalizado. El mayor desafío fue asegurar la sincronización de datos en tiempo real en todos los componentes mientras se mantenía el rendimiento.",
-      "features": [
-        "Visualización de datos en tiempo real",
-        "Integración con sistemas heredados",
-        "Herramientas de análisis espacial personalizadas",
-        "Control de acceso basado en roles"
-      ],
-      "role": "Desarrollador Líder"
-    },
-    "djangoGenerator": {
-      "title": "Generador Django",
-      "description": "Genera automáticamente aplicaciones Django desde configuración YAML.",
-      "longDescription": "Este paquete permite generar automáticamente aplicaciones y modelos Django desde un archivo de configuración YAML, agilizando tu proceso de desarrollo definiendo tu estructura de datos de manera declarativa.",
-      "challenges": "Analizar estructuras YAML complejas y generar código Django válido requirió validación y manejo de errores cuidadosos. Implementé un sistema de validación multifase para asegurar que el código generado funcionaría correctamente y un navegador IDE personalizado usando Monaco Editor.",
-      "features": [
-        "Conversión de YAML a modelo Django",
-        "Soporte para relaciones complejas",
-        "Plantillas personalizables",
-        "Validación y reporte de errores"
-      ],
-      "role": "Desarrollador Full Stack"
-    },
-    "djangoErdDesigner": {
-      "title": "Diseñador ERD Django",
-      "description": "Diseñador visual ERD para aplicaciones Django.",
-      "longDescription": "Una herramienta web que permite a los desarrolladores diseñar Diagramas de Entidad-Relación (ERD) visualmente y generar automáticamente aplicaciones Django completas a partir de ellos. La herramienta se conecta con django-generator para transformar el diagrama visual en modelos Django completamente funcionales, migraciones y configuraciones de admin. Soporta todos los tipos de campo de modelo Django, relaciones y patrones comunes de modelo.",
-      "challenges": "El desafío principal fue crear una interfaz intuitiva para relaciones complejas de modelos mientras se aseguraba que el código generado sigue las mejores prácticas de Django. Implementé una interfaz personalizada de arrastrar y soltar con validación en tiempo real y usé un sistema de conversión bidireccional entre el diagrama visual y la estructura de datos subyacente.",
-      "features": [
-        "Constructor de diagramas ERD interactivo con interfaz de arrastrar y soltar",
-        "Soporte para todos los tipos de campo Django y relaciones",
-        "Vista previa de código en tiempo real mientras diseñas",
-        "Exportar a aplicación Django completa vía django-generator",
-        "Importar modelos Django existentes para visualizar",
-        "Plantillas personalizables para patrones comunes",
-        "Capacidades de edición colaborativa"
-      ],
-      "role": "Desarrollador Full Stack"
-    }
+    "headingStart": "Herramientas y",
+    "headingHighlight": "Tecnologías",
+    "description": "Una lista curada de tecnologías que uso para dar vida a las ideas. Siempre curioso y evolucionando constantemente mi stack.",
+    "yearsShort": "{{count}}a",
+    "yearsLong_one": "{{count}} año de experiencia",
+    "yearsLong_other": "{{count}} años de experiencia"
   },
   "techCategories": {
     "Frontend": "Frontend",
@@ -115,5 +31,191 @@
     "DevOps": "DevOps",
     "Tools": "Herramientas"
   },
-  "yearsExperience": "años de experiencia"
+  "projects": {
+    "title": "Portafolio",
+    "headingStart": "Trabajos",
+    "headingHighlight": "Destacados",
+    "viewAll": "Ver Todos los Proyectos",
+    "code": "Código",
+    "liveDemo": "Demo en Vivo",
+    "viewDetails": "Ver Detalles"
+  },
+  "projectsPage": {
+    "badge": "Portafolio",
+    "headingStart": "Todos los",
+    "headingHighlight": "Proyectos",
+    "description": "Explora mi colección completa de proyectos. Usa los filtros de abajo para encontrar proyectos por tecnología.",
+    "filterTitle": "Filtrar Proyectos",
+    "clearAll": "Limpiar Todo",
+    "noResults": "Ningún proyecto coincide con los filtros seleccionados.",
+    "clearFilters": "Limpiar Filtros",
+    "codeAria": "Código fuente de {{title}}",
+    "liveAria": "Demo en vivo de {{title}}"
+  },
+  "projectDetail": {
+    "back": "Volver a Proyectos",
+    "badge": "Detalles del Proyecto",
+    "overview": "Resumen",
+    "keyFeatures": "Características Principales",
+    "challenges": "Desafíos y Soluciones",
+    "sidebarTitle": "Detalles del Proyecto",
+    "technologies": "Tecnologías",
+    "completed": "Completado",
+    "status": "Estado",
+    "inProgress": "En desarrollo",
+    "role": "Mi Rol",
+    "viewLive": "Ver Demo en Vivo",
+    "viewCode": "Ver Código Fuente",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "notFoundTitle": "Proyecto No Encontrado",
+    "notFoundText": "No pudimos encontrar el proyecto que buscas."
+  },
+  "blog": {
+    "title": "Blog",
+    "headingStart": "Últimos Artículos en",
+    "headingHighlight": "Medium",
+    "description": "Compartiendo conocimientos, ideas y experiencias de mi trayectoria en desarrollo de software.",
+    "pageHeadingStart": "Últimos",
+    "pageHeadingHighlight": "Artículos",
+    "pageDescription": "Explora todos mis artículos publicados en Medium. Encuentra temas que te interesen y profundiza en mis ideas y experiencias.",
+    "readMore": "Leer Artículo",
+    "viewAll": "Ver Todos los Artículos",
+    "viewOnMedium": "Ver Todos en Medium",
+    "readingTime": "{{count}} min de lectura",
+    "unavailable": "No se pueden cargar los artículos en este momento.",
+    "unavailableCta": "Léelos en Medium"
+  },
+  "contact": {
+    "title": "Conectar",
+    "headingStart": "Ponte en",
+    "headingHighlight": "Contacto",
+    "description": "¿Te interesa trabajar juntos o solo quieres saludar? Escríbeme por cualquiera de los canales de abajo.",
+    "sendMessage": "Enviar un Mensaje",
+    "connectWithMe": "Conecta Conmigo",
+    "email": "Correo",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "availability": "Disponibilidad",
+    "available": "Disponible para nuevas oportunidades",
+    "subject": "Asunto",
+    "subjectPlaceholder": "Consulta sobre un proyecto",
+    "message": "Mensaje",
+    "messagePlaceholder": "Hola Jose, me gustaría hablar sobre...",
+    "sendButton": "Enviar Mensaje"
+  },
+  "navbar": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "tech": "Tecnologías",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "resume": "Currículum",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "switchLanguage": "Switch to English",
+    "otherLanguage": "EN",
+    "otherLanguageName": "English"
+  },
+  "logo": {
+    "title": "Ir al inicio"
+  },
+  "footer": {
+    "description": "Construyendo excelencia digital con precisión y pasión.",
+    "copyright": "José Daniel García Suero"
+  },
+  "projectsData": {
+    "sugarcane-gis": {
+      "title": "Sistema de Información Geográfica para la Industria Azucarera",
+      "description": "SIG diseñado para apoyar la toma de decisiones en la industria azucarera.",
+      "longDescription": "Este sistema SIG integral incluye comunicación en tiempo real e integración con sistemas heredados. Proporciona herramientas de análisis espacial adaptadas específicamente a la industria azucarera, ayudando a optimizar la siembra, la cosecha y la logística.",
+      "challenges": "La integración con múltiples sistemas heredados requirió desarrollar middleware personalizado. El mayor desafío fue asegurar la sincronización de datos en tiempo real entre todos los componentes sin sacrificar el rendimiento.",
+      "features": [
+        "Visualización de datos en tiempo real",
+        "Integración con sistemas heredados",
+        "Herramientas de análisis espacial personalizadas",
+        "Control de acceso basado en roles"
+      ],
+      "role": "Desarrollador Líder"
+    },
+    "django-generator": {
+      "title": "Django Generator",
+      "description": "Genera automáticamente aplicaciones Django desde una configuración YAML.",
+      "longDescription": "Este paquete permite generar automáticamente aplicaciones y modelos Django desde un archivo de configuración YAML, agilizando el desarrollo al definir la estructura de datos de forma declarativa.",
+      "challenges": "Analizar estructuras YAML complejas y generar código Django válido requirió una validación y un manejo de errores cuidadosos. Implementé un sistema de validación multifase para asegurar que el código generado funcione correctamente y un IDE en el navegador usando Monaco Editor.",
+      "features": [
+        "Conversión de YAML a modelos Django",
+        "Soporte para relaciones complejas",
+        "Plantillas personalizables",
+        "Validación y reporte de errores"
+      ],
+      "role": "Desarrollador Full Stack"
+    },
+    "django-erd-designer": {
+      "title": "Django ERD Designer",
+      "description": "Diseñador visual de diagramas ERD para aplicaciones Django.",
+      "longDescription": "Una herramienta web que permite diseñar Diagramas Entidad-Relación (ERD) de forma visual y generar automáticamente aplicaciones Django completas a partir de ellos. Se conecta con django-generator para transformar el diagrama en modelos, migraciones y configuraciones de admin totalmente funcionales. Soporta todos los tipos de campo de Django, relaciones y patrones de modelo comunes.",
+      "challenges": "El desafío principal fue crear una interfaz intuitiva para relaciones complejas entre modelos asegurando que el código generado siga las buenas prácticas de Django. Implementé una interfaz de arrastrar y soltar con validación en tiempo real y un sistema de conversión bidireccional entre el diagrama visual y la estructura de datos subyacente.",
+      "features": [
+        "Constructor de diagramas ERD interactivo con arrastrar y soltar",
+        "Soporte para todos los tipos de campo y relaciones de Django",
+        "Vista previa del código en tiempo real mientras diseñas",
+        "Exportación a una aplicación Django completa vía django-generator",
+        "Importación de modelos Django existentes para visualizarlos",
+        "Plantillas personalizables para patrones comunes",
+        "Capacidades de edición colaborativa"
+      ],
+      "role": "Desarrollador Full Stack"
+    },
+    "terminal-playground": {
+      "title": "Terminal Playground",
+      "description": "Simulador de terminal interactivo en el navegador.",
+      "longDescription": "Aprende los comandos esenciales de la terminal sin instalar nada, mediante lecciones guiadas. El proyecto busca que los principiantes se sientan cómodos con la terminal en un entorno seguro e interactivo.",
+      "challenges": "Emular una terminal realista en el navegador requirió un manejo cuidadoso de la entrada del usuario y del análisis de comandos. Lo resolví implementando un intérprete de comandos propio con hooks de React para el manejo de estado.",
+      "features": [
+        "Emulador de terminal interactivo",
+        "Lecciones guiadas para principiantes",
+        "Historial de comandos",
+        "Diseño adaptable a cualquier dispositivo"
+      ],
+      "role": "Desarrollador Full Stack"
+    },
+    "coinit-platform-landing-page": {
+      "title": "Landing Page de CoinIt",
+      "description": "Landing page de la plataforma CoinIt.",
+      "longDescription": "Pensada para que los coleccionistas muestren, intercambien y conecten en torno a piezas raras. La landing destaca las funciones clave de la plataforma con demos interactivas y llamadas a la acción claras para impulsar la conversión.",
+      "challenges": "Crear animaciones fluidas en todos los dispositivos sin perder buenas prácticas de SEO requirió una optimización cuidadosa. Implementé carga diferida y estrategias de mejora progresiva.",
+      "features": [
+        "Animaciones optimizadas para rendimiento",
+        "Estructura de contenido optimizada para SEO",
+        "Diseño responsive mobile-first"
+      ],
+      "role": "Desarrollador Frontend"
+    },
+    "personal-tracker": {
+      "title": "Personal Tracker",
+      "description": "Organiza y mantén el control de tus datos.",
+      "longDescription": "Herramienta de organización personal que te permite conversar con tus datos usando LLMs. Registra hábitos, gastos, notas y más en una interfaz unificada con potentes capacidades de búsqueda y análisis.",
+      "features": [
+        "Interacción con los datos en lenguaje natural",
+        "Aplicación de escritorio multiplataforma",
+        "Almacenamiento local-first",
+        "Módulos de seguimiento personalizables"
+      ],
+      "role": "Desarrollador Full Stack"
+    },
+    "email-handler": {
+      "title": "Email Handler",
+      "description": "Plataforma para gestionar listas de correo y newsletters.",
+      "longDescription": "Solución completa para que emprendedores gestionen sus campañas de email marketing. Incluye segmentación de listas, analíticas y gestión de plantillas, con foco en la facilidad de uso y la entregabilidad.",
+      "challenges": "Asegurar una alta entregabilidad requirió implementar validación de correos, manejo de rebotes y seguimiento de interacción. Integré varias APIs de proveedores de email para obtener los mejores resultados.",
+      "features": [
+        "Editor de emails de arrastrar y soltar",
+        "Segmentación de listas",
+        "Analíticas de campañas",
+        "Pruebas A/B"
+      ],
+      "role": "Desarrollador Full Stack"
+    }
+  }
 }

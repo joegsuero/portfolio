@@ -1,6 +1,7 @@
 import TypewriterLogo from "@/components/TypewriterLogo";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SOCIAL } from "@/data/data";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -21,7 +22,8 @@ const Footer = () => {
           <div className="flex flex-col items-center gap-4">
             <div className="flex space-x-6">
               <a
-                href="https://github.com/joegsuero"
+                href={SOCIAL.github}
+                aria-label="GitHub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg bg-white/5 border border-white/5 hover:border-white/10"
@@ -29,7 +31,8 @@ const Footer = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/joegsuero"
+                href={SOCIAL.linkedin}
+                aria-label="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg bg-white/5 border border-white/5 hover:border-white/10"
@@ -37,7 +40,8 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="mailto:joegsuero@gmail.com"
+                href={`mailto:${SOCIAL.email}`}
+                aria-label={t("contact.email")}
                 className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg bg-white/5 border border-white/5 hover:border-white/10"
               >
                 <Mail className="w-5 h-5" />

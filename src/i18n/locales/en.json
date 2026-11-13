@@ -1,33 +1,95 @@
 {
   "hero": {
     "role": "Software Engineer",
-    "name": "José Daniel García Suero",
     "description": "Crafting high-performance digital solutions with 4 years of expertise. I specialize in building scalable applications that bridge the gap between complex logic and human-centric design.",
     "exploreWork": "Explore My Work",
-    "getInTouch": "Get in Touch"
+    "getInTouch": "Get in Touch",
+    "scrollDown": "Scroll to the About section"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "The Developer Behind The Code",
+    "headingStart": "The Developer Behind",
+    "headingHighlight": "The Code",
     "paragraph1": "Hello! I'm Jose, a passionate software engineer with 4 years of experience building robust and scalable applications. I specialize in creating efficient solutions that solve real-world problems.",
     "paragraph2": "My journey in software development has equipped me with a diverse skill set and a deep understanding of modern development practices. I'm constantly learning and adapting to new technologies to stay at the forefront of the industry.",
-    "paragraph3": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community."
+    "paragraph3": "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.",
+    "photoAlt": "Portrait of José Daniel García Suero"
   },
   "tech": {
     "title": "Toolkit",
-    "subtitle": "Tools & Technologies",
-    "description": "A curated list of technologies I use to bring ideas to life. Always curious and constantly evolving my stack."
+    "headingStart": "Tools &",
+    "headingHighlight": "Technologies",
+    "description": "A curated list of technologies I use to bring ideas to life. Always curious and constantly evolving my stack.",
+    "yearsShort": "{{count}}y",
+    "yearsLong_one": "{{count}} year of experience",
+    "yearsLong_other": "{{count}} years of experience"
+  },
+  "techCategories": {
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Database": "Database",
+    "DevOps": "DevOps",
+    "Tools": "Tools"
   },
   "projects": {
     "title": "Portfolio",
-    "subtitle": "Some Featured Work",
+    "headingStart": "Featured",
+    "headingHighlight": "Work",
     "viewAll": "View All Projects",
     "code": "Code",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "viewDetails": "View Details"
+  },
+  "projectsPage": {
+    "badge": "Portfolio",
+    "headingStart": "All",
+    "headingHighlight": "Projects",
+    "description": "Browse through my complete collection of projects. Use the filters below to find projects by technology.",
+    "filterTitle": "Filter Projects",
+    "clearAll": "Clear All",
+    "noResults": "No projects match your selected filters.",
+    "clearFilters": "Clear Filters",
+    "codeAria": "Source code for {{title}}",
+    "liveAria": "Live demo of {{title}}"
+  },
+  "projectDetail": {
+    "back": "Back to Projects",
+    "badge": "Project Details",
+    "overview": "Overview",
+    "keyFeatures": "Key Features",
+    "challenges": "Challenges & Solutions",
+    "sidebarTitle": "Project Details",
+    "technologies": "Technologies",
+    "completed": "Completed",
+    "status": "Status",
+    "inProgress": "Work in progress",
+    "role": "My Role",
+    "viewLive": "View Live Demo",
+    "viewCode": "View Source Code",
+    "previous": "Previous",
+    "next": "Next",
+    "notFoundTitle": "Project Not Found",
+    "notFoundText": "We couldn't find the project you're looking for."
+  },
+  "blog": {
+    "title": "Blog",
+    "headingStart": "Latest Articles from",
+    "headingHighlight": "Medium",
+    "description": "Sharing knowledge, insights and experiences from my journey in software development.",
+    "pageHeadingStart": "Latest",
+    "pageHeadingHighlight": "Articles",
+    "pageDescription": "Explore all my published articles on Medium. Find topics that interest you and dive deeper into my thoughts and experiences.",
+    "readMore": "Read Article",
+    "viewAll": "View All Articles",
+    "viewOnMedium": "View All on Medium",
+    "readingTime": "{{count}} min read",
+    "unavailable": "Articles can't be loaded right now.",
+    "unavailableCta": "Read them on Medium"
   },
   "contact": {
     "title": "Connect",
-    "subtitle": "Get In Touch",
+    "headingStart": "Get in",
+    "headingHighlight": "Touch",
     "description": "Interested in working together or just want to say hi? Feel free to reach out through any of the channels below.",
     "sendMessage": "Send a Message",
     "connectWithMe": "Connect With Me",
@@ -37,37 +99,35 @@
     "availability": "Availability",
     "available": "Available for new opportunities",
     "subject": "Subject",
+    "subjectPlaceholder": "Project inquiry",
     "message": "Message",
+    "messagePlaceholder": "Hi Jose, I'd like to talk about...",
     "sendButton": "Send Message"
   },
   "navbar": {
-    "about": "about",
-    "projects": "projects",
-    "tech": "tech",
-    "blog": "blog",
-    "contact": "contact",
-    "resume": "Resume"
+    "about": "About",
+    "projects": "Projects",
+    "tech": "Tech",
+    "blog": "Blog",
+    "contact": "Contact",
+    "resume": "Resume",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Cambiar a español",
+    "otherLanguage": "ES",
+    "otherLanguageName": "Español"
+  },
+  "logo": {
+    "title": "Go to home"
   },
   "footer": {
     "description": "Building digital excellence with precision and passion.",
     "copyright": "José Daniel García Suero"
   },
-  "blog": {
-    "title": "Blog",
-    "subtitle": "Latest Articles from",
-    "medium": "Medium",
-    "description": "Sharing knowledge, insights and experiences from my journey in software development.",
-    "pageDescription": "Explore all my published articles on Medium. Find topics that interest you and dive deeper into my thoughts and experiences.",
-    "pageTitle": "Latest Articles",
-    "readMore": "Read Article",
-    "viewAll": "View All Articles",
-    "viewOnMedium": "View All on Medium",
-    "errorMessage": "Make sure to update your Medium username in the component"
-  },
   "projectsData": {
-    "sig": {
+    "sugarcane-gis": {
       "title": "Geographic Information System for Sugarcane Industry",
-      "description": "GIS designed for help in the decision making process in the Sugarcane Industry.",
+      "description": "GIS designed to support decision making in the sugarcane industry.",
       "longDescription": "This comprehensive GIS system includes real-time communication and integration with legacy systems. It provides spatial analysis tools specifically tailored for the sugarcane industry, helping optimize planting, harvesting and logistics.",
       "challenges": "Integrating with multiple legacy systems required developing custom middleware. The biggest challenge was ensuring real-time data synchronization across all components while maintaining performance.",
       "features": [
@@ -78,7 +138,7 @@
       ],
       "role": "Lead Developer"
     },
-    "djangoGenerator": {
+    "django-generator": {
       "title": "Django Generator",
       "description": "Automatically generate Django applications from YAML config.",
       "longDescription": "This package allows you to automatically generate Django applications and models from a YAML configuration file, streamlining your development process by defining your data structure declaratively.",
@@ -91,7 +151,7 @@
       ],
       "role": "Full Stack Developer"
     },
-    "djangoErdDesigner": {
+    "django-erd-designer": {
       "title": "Django ERD Designer",
       "description": "Visual ERD designer for Django applications.",
       "longDescription": "A web-based tool that allows developers to design Entity-Relationship Diagrams (ERD) visually and automatically generate complete Django applications from them. The tool connects with django-generator to transform the visual diagram into fully functional Django models, migrations, and admin configurations. It supports all Django model field types, relationships, and common model patterns.",
@@ -106,14 +166,56 @@
         "Collaborative editing capabilities"
       ],
       "role": "Full Stack Developer"
+    },
+    "terminal-playground": {
+      "title": "Terminal Playground",
+      "description": "Interactive browser-based terminal simulator.",
+      "longDescription": "Learn core CLI commands without local setup via guided lessons. This project was designed to help beginners get comfortable with terminal commands in a safe, interactive environment.",
+      "challenges": "Creating a realistic terminal emulation in the browser required careful handling of user input and command parsing. I solved this by implementing a custom command interpreter with React hooks for state management.",
+      "features": [
+        "Interactive terminal emulator",
+        "Guided lessons for beginners",
+        "Command history",
+        "Responsive design that works on all devices"
+      ],
+      "role": "Full Stack Developer"
+    },
+    "coinit-platform-landing-page": {
+      "title": "CoinIt Platform Landing Page",
+      "description": "Landing page for the CoinIt platform.",
+      "longDescription": "Designed for collectors to showcase, trade, and connect over rare items. The landing page highlights key features of the platform with interactive demos and clear call-to-action sections to drive conversions.",
+      "challenges": "Creating performant animations that work across all devices while maintaining SEO best practices required careful optimization. I implemented lazy loading and progressive enhancement strategies.",
+      "features": [
+        "Performance-optimized animations",
+        "SEO-optimized content structure",
+        "Mobile-first responsive design"
+      ],
+      "role": "Frontend Developer"
+    },
+    "personal-tracker": {
+      "title": "Personal Tracker",
+      "description": "Organize and keep control of your data.",
+      "longDescription": "A personal organization tool that lets you chat with your data using LLM technology. Track habits, expenses, notes and more in a unified interface with powerful search and analysis capabilities.",
+      "features": [
+        "Natural language data interaction",
+        "Cross-platform desktop app",
+        "Local-first data storage",
+        "Customizable tracking modules"
+      ],
+      "role": "Full Stack Developer"
+    },
+    "email-handler": {
+      "title": "Email Handler",
+      "description": "Platform for managing email lists and newsletters.",
+      "longDescription": "A complete solution for entrepreneurs to manage their email marketing campaigns. Includes list segmentation, analytics, and template management with a focus on ease of use and deliverability.",
+      "challenges": "Ensuring high deliverability required implementing proper email validation, bounce handling, and engagement tracking. I integrated with multiple ESP APIs to provide the best results.",
+      "features": [
+        "Drag-and-drop email builder",
+        "List segmentation",
+        "Campaign analytics",
+        "A/B testing"
+      ],
+      "role": "Full Stack Developer"
     }
-  },
-  "techCategories": {
-    "Frontend": "Frontend",
-    "Backend": "Backend",
-    "Database": "Database",
-    "DevOps": "DevOps",
-    "Tools": "Tools"
-  },
-  "yearsExperience": "years of experience"
+  }
 }

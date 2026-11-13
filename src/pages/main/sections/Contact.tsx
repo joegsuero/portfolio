@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import React, { forwardRef, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SOCIAL } from "@/data/data";
 
 const Contact = forwardRef((_props, ref: any) => {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ const Contact = forwardRef((_props, ref: any) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const email = "joegsuero@gmail.com";
+    const email = SOCIAL.email;
     const subject = encodeURIComponent(contactData.subject);
     const body = encodeURIComponent(contactData.message);
 
@@ -48,7 +49,8 @@ const Contact = forwardRef((_props, ref: any) => {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              {t('contact.subtitle').split(' ')[0]} <span className="text-gradient">{t('contact.subtitle').split(' ')[1]}</span>
+              {t("contact.headingStart")}{" "}
+              <span className="text-gradient">{t("contact.headingHighlight")}</span>
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -75,15 +77,15 @@ const Contact = forwardRef((_props, ref: any) => {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="subject"
                     className="block text-sm font-semibold text-gray-400 mb-2 ml-1"
                   >
                     {t('contact.subject')}
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    placeholder="Project Inquiry"
+                    id="subject"
+                    placeholder={t("contact.subjectPlaceholder")}
                     value={contactData.subject}
                     onChange={(e) => {
                       setContactData({
@@ -104,7 +106,7 @@ const Contact = forwardRef((_props, ref: any) => {
                   <textarea
                     id="message"
                     rows={6}
-                    placeholder="Hello Jose, I'd like to talk about..."
+                    placeholder={t("contact.messagePlaceholder")}
                     value={contactData.message}
                     onChange={(e) => {
                       setContactData({
@@ -136,7 +138,7 @@ const Contact = forwardRef((_props, ref: any) => {
               </h4>
               <div className="space-y-6 flex-grow">
                 <a
-                  href="mailto:joegsuero@gmail.com"
+                  href={`mailto:${SOCIAL.email}`}
                   className="flex items-center gap-5 p-4 rounded-2xl border border-transparent hover:border-white/10 hover:bg-white/5 transition-all group"
                 >
                   <div className="bg-blue-500/10 p-4 rounded-2xl group-hover:bg-blue-500 group-hover:text-slate-950 transition-colors">
@@ -151,7 +153,7 @@ const Contact = forwardRef((_props, ref: any) => {
                 </a>
 
                 <a
-                  href="https://github.com/joegsuero"
+                  href={SOCIAL.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-5 p-4 rounded-2xl border border-transparent hover:border-white/10 hover:bg-white/5 transition-all group"
@@ -168,7 +170,7 @@ const Contact = forwardRef((_props, ref: any) => {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/joegsuero"
+                  href={SOCIAL.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-5 p-4 rounded-2xl border border-transparent hover:border-white/10 hover:bg-white/5 transition-all group"

@@ -1,21 +1,27 @@
-"use client";
-
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Github, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Calendar } from "lucide-react";
 import { PROJECTS } from "@/data/data";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { formatMonth, useProjectText } from "@/hooks/useProjectText";
 
 export default function ProjectDetail() {
-  const { title: slug } = useParams();
+  const { slug = "" } = useParams();
+  const { t, i18n } = useTranslation();
+  const getText = useProjectText();
 
-  const navigate = useNavigate();
-  const project =
-    PROJECTS.find((p) => p.title === slug || p.title === undefined) ||
-    PROJECTS[Number.parseInt(slug as string, 10)];
+  const currentIndex = PROJECTS.findIndex((p) => p.id === slug);
 
-  if (!project) {
+  if (currentIndex === -1) {
+    // Old links used the English title as the slug: redirect them to the new URL
+    const enT = i18n.getFixedT("en");
+    const legacy = PROJECTS.find(
+      (p) => enT(`projectsData.${p.id}.title`) === slug,
+    );
+    if (legacy) return <Navigate to={`/projects/${legacy.id}`} replace />;
+
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <main className="min-h-screen bg-black flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,210 +29,168 @@ export default function ProjectDetail() {
           className="text-center"
         >
           <h1 className="text-4xl font-bold text-blue-400 mb-6">
-            Project Not Found
+            {t("projectDetail.notFoundTitle")}
           </h1>
-          <p className="text-gray-400 mb-8">
-            We couldn't find the project you're looking for.
-          </p>
-          <button
-            onClick={() => navigate("/projects")}
-            className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform active:scale-95"
+          <p className="text-gray-400 mb-8">{t("projectDetail.notFoundText")}</p>
+          <Link
+            to="/projects"
+            className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform active:scale-95"
           >
-            Back to Projects
-          </button>
+            {t("projectDetail.back")}
+          </Link>
         </motion.div>
-      </div>
+      </main>
     );
   }
 
-  const goBack = () => {
-    navigate("/projects");
-  };
-
-  const currentIndex =
-    Number.parseInt(slug as string, 10) ||
-    PROJECTS.findIndex((p) => p.title === slug);
-  const prevIndex = Math.max(0, currentIndex - 1);
-  const nextIndex = Math.min(PROJECTS.length - 1, currentIndex + 1);
-  const prevProject = PROJECTS[prevIndex];
-  const nextProject = PROJECTS[nextIndex];
+  const project = PROJECTS[currentIndex];
+  const text = getText(project);
+  const prevProject = PROJECTS[currentIndex - 1];
+  const nextProject = PROJECTS[currentIndex + 1];
+  const language = i18n.resolvedLanguage ?? "en";
 
   return (
-    <div className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black">
       <div className="py-32 relative px-6 overflow-hidden">
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="container mx-auto px-4">
           <motion.div
+            key={project.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="max-w-5xl mx-auto"
           >
-            {/* Back button */}
-            <motion.button
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              onClick={goBack}
-              className="flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-12 font-medium transition-colors group"
+            {/* Back link */}
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-12 font-medium transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              Back to Projects
-            </motion.button>
+              {t("projectDetail.back")}
+            </Link>
 
             {/* Project header */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-12"
-            >
+            <div className="mb-12">
               <div className="inline-block bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-6 glass">
-                <h2 className="text-sm font-medium tracking-wider uppercase text-blue-400">
-                  Project Details
-                </h2>
+                <p className="text-sm font-medium tracking-wider uppercase text-blue-400">
+                  {t("projectDetail.badge")}
+                </p>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                {project.title}
+                {text.title}
               </h1>
-              <p className="text-gray-400 text-lg">{project.description}</p>
-            </motion.div>
+              <p className="text-gray-400 text-lg">{text.description}</p>
+            </div>
 
             {/* Project image */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative mb-16 rounded-3xl overflow-hidden border border-white/5 bg-slate-900/40"
-            >
+            <div className="relative mb-16 rounded-3xl overflow-hidden border border-white/5 bg-slate-900/40">
               <img
-                src={project.image || "/placeholder.svg?height=600&width=1200"}
-                alt={project.title}
+                src={project.image}
+                alt={text.title}
+                width={project.imageWidth}
+                height={project.imageHeight}
+                decoding="async"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
-            </motion.div>
+            </div>
 
             {/* Project details grid */}
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               {/* Main content */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="md:col-span-2"
-              >
-                <div className="space-y-12">
-                  {/* Overview */}
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-6">
-                      Overview
-                    </h3>
-                    <div className="space-y-4">
-                      <p className="text-gray-400 text-lg leading-relaxed">
-                        {project.description}
-                      </p>
-                      {project.longDescription && (
-                        <p className="text-gray-400 text-lg leading-relaxed">
-                          {project.longDescription}
-                        </p>
-                      )}
-                    </div>
-                  </div>
+              <div className="md:col-span-2 space-y-12">
+                <section>
+                  <h2 className="text-2xl font-bold text-white mb-6">
+                    {t("projectDetail.overview")}
+                  </h2>
+                  <p className="text-gray-400 text-lg leading-relaxed">
+                    {text.longDescription ?? text.description}
+                  </p>
+                </section>
 
-                  {/* Key Features */}
-                  <div>
-                    <h4 className="text-xl font-bold text-white mb-6">
-                      Key Features
-                    </h4>
+                {text.features.length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-bold text-white mb-6">
+                      {t("projectDetail.keyFeatures")}
+                    </h2>
                     <ul className="space-y-3">
-                      {project.features.map((feature, index) => (
-                        <motion.li
-                          key={index}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.05 }}
-                          className="flex gap-3 text-gray-400"
-                        >
-                          <span className="text-blue-400 font-bold mt-1">
+                      {text.features.map((feature) => (
+                        <li key={feature} className="flex gap-3 text-gray-400">
+                          <span className="text-blue-400 font-bold" aria-hidden="true">
                             →
                           </span>
                           <span>{feature}</span>
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
-                  </div>
+                  </section>
+                )}
 
-                  {/* Challenges */}
-                  {project.challenges && (
-                    <div>
-                      <h4 className="text-xl font-bold text-white mb-6">
-                        Challenges & Solutions
-                      </h4>
-                      <p className="text-gray-400 text-lg leading-relaxed">
-                        {project.challenges}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
+                {text.challenges && (
+                  <section>
+                    <h2 className="text-xl font-bold text-white mb-6">
+                      {t("projectDetail.challenges")}
+                    </h2>
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                      {text.challenges}
+                    </p>
+                  </section>
+                )}
+              </div>
 
               {/* Sidebar - Project Info Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="h-fit"
-              >
-                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8 glass-dark sticky top-8">
-                  <h3 className="text-xl font-bold text-white mb-8">
-                    Project Details
-                  </h3>
+              <aside className="h-fit md:sticky md:top-28">
+                <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-8 glass-dark">
+                  <h2 className="text-xl font-bold text-white mb-8">
+                    {t("projectDetail.sidebarTitle")}
+                  </h2>
 
-                  <div className="space-y-8">
-                    {/* Technologies */}
+                  <dl className="space-y-8">
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                        Technologies
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, i) => (
+                      <dt className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                        {t("projectDetail.technologies")}
+                      </dt>
+                      <dd className="flex flex-wrap gap-2">
+                        {project.tech.map((tech) => (
                           <span
-                            key={i}
-                            className="text-xs font-medium bg-white/5 border border-white/10 text-gray-300 px-3 py-1.5 rounded-full hover:border-blue-500/50 hover:text-blue-300 transition-all"
+                            key={tech}
+                            className="text-xs font-medium bg-white/5 border border-white/10 text-gray-300 px-3 py-1.5 rounded-full"
                           >
                             {tech}
                           </span>
                         ))}
-                      </div>
+                      </dd>
                     </div>
 
-                    {/* Completion Date */}
-                    {project.completedDate && (
+                    {(project.completedDate || project.inProgress) && (
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                          Completed
-                        </h4>
-                        <div className="flex items-center gap-3">
-                          <Calendar className="w-4 h-4 text-blue-400" />
+                        <dt className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                          {project.completedDate
+                            ? t("projectDetail.completed")
+                            : t("projectDetail.status")}
+                        </dt>
+                        <dd className="flex items-center gap-3">
+                          <Calendar className="w-4 h-4 text-blue-400" aria-hidden="true" />
                           <span className="text-gray-300">
-                            {project.completedDate}
+                            {project.completedDate
+                              ? formatMonth(project.completedDate, language)
+                              : t("projectDetail.inProgress")}
                           </span>
-                        </div>
+                        </dd>
                       </div>
                     )}
 
-                    {/* Role */}
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                        My Role
-                      </h4>
-                      <span className="text-gray-300">{project.role}</span>
+                      <dt className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                        {t("projectDetail.role")}
+                      </dt>
+                      <dd className="text-gray-300">{text.role}</dd>
                     </div>
+                  </dl>
 
-                    {/* Links */}
-                    <div className="pt-4 border-t border-white/5 space-y-3">
+                  {(project.live || project.code) && (
+                    <div className="mt-8 pt-4 border-t border-white/5 space-y-3">
                       {project.live && (
                         <a
                           href={project.live}
@@ -234,15 +198,12 @@ export default function ProjectDetail() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-blue-500/30 hover:bg-blue-500/5 transition-all group"
                         >
-                          <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
-                            <ExternalLink className="w-4 h-4" />
-                          </div>
+                          <ExternalLink className="w-4 h-4 text-blue-400" aria-hidden="true" />
                           <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                            View Live Demo
+                            {t("projectDetail.viewLive")}
                           </span>
                         </a>
                       )}
-
                       {project.code && (
                         <a
                           href={project.code}
@@ -250,62 +211,44 @@ export default function ProjectDetail() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-blue-500/30 hover:bg-blue-500/5 transition-all group"
                         >
-                          <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
-                            <Github className="w-4 h-4" />
-                          </div>
+                          <Github className="w-4 h-4 text-blue-400" aria-hidden="true" />
                           <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                            View Source Code
+                            {t("projectDetail.viewCode")}
                           </span>
                         </a>
                       )}
                     </div>
-                  </div>
+                  )}
                 </div>
-              </motion.div>
+              </aside>
             </div>
 
             {/* Navigation between projects */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="border-t border-white/5 pt-12 mt-12"
-            >
-              <div className="flex items-center justify-between gap-4">
-                {currentIndex > 0 && (
-                  <button
-                    onClick={() => {
-                      navigate(`/projects/${prevProject.title || prevIndex}`);
-                      setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }, 50);
-                    }}
-                    className="flex items-center gap-3 px-6 py-3 bg-slate-900/40 border border-white/5 rounded-xl font-semibold glass-dark hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10 transition-all group"
-                  >
-                    <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                    Previous
-                  </button>
-                )}
-                <div className="flex-1"></div>
-                {nextIndex > currentIndex && (
-                  <button
-                    onClick={() => {
-                      navigate(`/projects/${nextProject.title || nextIndex}`);
-                      setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }, 50);
-                    }}
-                    className="flex items-center gap-3 px-6 py-3 bg-slate-900/40 border border-white/5 rounded-xl font-semibold glass-dark hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10 transition-all group"
-                  >
-                    Next
-                    <ArrowLeft className="w-4 h-4 rotate-180 transition-transform group-hover:translate-x-1" />
-                  </button>
-                )}
-              </div>
-            </motion.div>
+            <nav className="border-t border-white/5 pt-12 mt-12 flex items-center justify-between gap-4">
+              {prevProject ? (
+                <Link
+                  to={`/projects/${prevProject.id}`}
+                  className="flex items-center gap-3 px-6 py-3 bg-slate-900/40 border border-white/5 rounded-xl font-semibold glass-dark hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10 transition-all group"
+                >
+                  <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                  {t("projectDetail.previous")}
+                </Link>
+              ) : (
+                <span />
+              )}
+              {nextProject && (
+                <Link
+                  to={`/projects/${nextProject.id}`}
+                  className="flex items-center gap-3 px-6 py-3 bg-slate-900/40 border border-white/5 rounded-xl font-semibold glass-dark hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10 transition-all group"
+                >
+                  {t("projectDetail.next")}
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              )}
+            </nav>
           </motion.div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

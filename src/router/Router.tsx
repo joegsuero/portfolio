@@ -7,10 +7,12 @@ import ProjectDetail from "@/pages/projects/ProjectDetail";
 import BlogPage from "@/pages/blog/BlogPage";
 import Navbar from "@/layout/Navbar";
 import Footer from "@/layout/Footer";
+import ScrollManager from "@/components/ScrollManager";
 
 const Router: React.FC = () => {
   return (
     <HashRouter>
+      <ScrollManager />
       <Navbar />
       <Routes>
         <Route path={switchRoutes.root} element={<Main />} />

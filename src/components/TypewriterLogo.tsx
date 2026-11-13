@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type State =
   | "IDLE"
@@ -17,6 +18,7 @@ const TypewriterLogo = () => {
   const [state, setState] = useState<State>("IDLE");
   const [isHovering, setIsHovering] = useState(false);
 
+  const { t } = useTranslation();
   const timeoutRef = useRef<any>(null);
   const navigate = useNavigate();
   const pathname = useLocation().pathname;
@@ -156,25 +158,26 @@ const TypewriterLogo = () => {
   const isTyping = state === "TYPING_FULL" || state === "TYPING_SHORT";
 
   return (
-    <span
+    <button
+      type="button"
       className="bg-blue-900 px-2 py-1 rounded cursor-pointer inline-block min-w-[3rem] hover:bg-blue-800 transition-colors"
       onClick={() => {
-        if (pathname.includes("projects")) {
+        if (pathname !== "/") {
           navigate("/");
         } else {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      title="Click para ir a inicio"
+      onFocus={handleMouseEnter}
+      onBlur={handleMouseLeave}
+      title={t("logo.title")}
+      aria-label={`joegsuero — ${t("logo.title")}`}
     >
       {displayText}
-      {isTyping && <span className="animate-pulse">|</span>}
-    </span>
+      {isTyping && <span className="animate-pulse" aria-hidden="true">|</span>}
+    </button>
   );
 };
 
