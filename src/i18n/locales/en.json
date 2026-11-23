@@ -1,7 +1,7 @@
 {
   "hero": {
-    "role": "Full-Stack Engineer · Web & Mobile",
-    "description": "I build web and mobile products end to end: Python backends with Django and FastAPI, and interfaces in React, Next.js and Flutter. Over 5 years I've led a GIS platform for the sugarcane industry and built open-source tools that generate Django code.",
+    "role": "Senior Full-Stack Engineer · Web, Mobile & Cloud",
+    "description": "Lead engineer of HiveCare, a HIPAA-ready healthcare SaaS live on the web and the App Store. I take products from the data model to production: Python backends with FastAPI and Django, apps in React, Next.js and Flutter, and the Google Cloud infrastructure they run on.",
     "exploreWork": "Explore My Work",
     "getInTouch": "Get in Touch",
     "scrollDown": "Scroll to the About section",
@@ -11,24 +11,24 @@
   },
   "about": {
     "title": "About Me",
-    "headingStart": "From database",
-    "headingHighlight": "to interface",
-    "paragraph1": "I'm Jose, a full-stack engineer with 5 years of experience. I like owning a product from the data model to the screen people actually use: the API in Python, the database in PostgreSQL and the interface in React, Next.js or Flutter.",
-    "paragraph2": "Much of my work deals with data that has a location. As lead developer of a GIS platform for the sugarcane industry, I integrated legacy systems with real-time spatial analysis on PostGIS and GeoServer. I'm also drawn to developer tooling: I build open-source generators that turn a YAML file or a visual diagram into a working Django app.",
-    "paragraph3": "I write about what I learn on Medium, and I'm currently open to remote full-stack roles where I can work across backend, web and mobile.",
+    "headingStart": "From data model",
+    "headingHighlight": "to production",
+    "paragraph1": "I'm Jose, a senior full-stack engineer with 5 years of experience. I like owning a product from the data model to production: the API in Python, the database in PostgreSQL, the web and mobile apps, and the infrastructure, security and billing work that real products need.",
+    "paragraph2": "Right now I'm the lead engineer of HiveCare, a messaging and calling platform for home-care agencies built by a three-person team. I wrote the backend and the Flutter apps, run the Google Cloud infrastructure, integrated Stripe and turned HIPAA requirements into working controls. Before that, at Datazucar, I took a lab GIS for Cuba's sugar industry to a deployed, field-piloted system, a project I presented at Informática 2024.",
+    "paragraph3": "I also build tools for AI agents (MCP servers in Vizion and SketchSlides) and write about Django, FastAPI and shipping Python on Medium. I'm open to remote senior full-stack and backend roles.",
     "photoAlt": "Portrait of José Daniel García Suero",
     "highlights": [
       {
-        "title": "Lead developer",
-        "text": "GIS platform for the sugarcane industry"
+        "title": "Lead engineer",
+        "text": "HIPAA-ready healthcare SaaS on web, iOS and Android"
       },
       {
-        "title": "Open source",
-        "text": "Code generation tools for Django"
+        "title": "Cloud & DevOps",
+        "text": "Google Cloud, CI/CD and security, end to end"
       },
       {
-        "title": "Mobile",
-        "text": "4+ years building apps with Flutter"
+        "title": "Speaker & writer",
+        "text": "Informática 2024 · 29 articles on Medium"
       }
     ]
   },
@@ -59,7 +59,8 @@
     "featured": "Featured",
     "statusInProgress": "In progress",
     "statusCompleted": "Completed",
-    "statusOpenSource": "Open source"
+    "statusOpenSource": "Open source",
+    "statusInProduction": "In production"
   },
   "projectsPage": {
     "badge": "Portfolio",
@@ -95,7 +96,8 @@
     "approach": "My approach",
     "outcome": "Outcome",
     "gallery": "Screenshots",
-    "video": "Demo"
+    "video": "Demo",
+    "inProduction": "In production"
   },
   "blog": {
     "title": "Blog",
@@ -123,13 +125,13 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "availability": "Availability",
-    "available": "Open to remote full-stack roles",
+    "available": "Open to remote senior full-stack and backend roles",
     "subject": "Subject",
     "subjectPlaceholder": "Project inquiry",
     "message": "Message",
     "messagePlaceholder": "Hi Jose, I'd like to talk about...",
     "sendButton": "Send Message",
-    "availableStack": "Python · Django · FastAPI · React · Next.js · Flutter"
+    "availableStack": "Python · FastAPI · Django · React · Next.js · Flutter · GCP"
   },
   "navbar": {
     "about": "About",
@@ -153,25 +155,66 @@
     "copyright": "José Daniel García Suero"
   },
   "projectsData": {
-    "sugarcane-gis": {
-      "title": "Geographic Information System for Sugarcane Industry",
-      "description": "GIS designed to support decision making in the sugarcane industry.",
-      "problem": "Decision makers in the sugarcane industry needed to see fields, harvest operations and vehicles on a single map, but the data lived in several legacy systems that didn't talk to each other.",
+    "hivecare": {
+      "title": "HiveCare",
+      "description": "HIPAA-ready messaging and calling platform for home-care agencies, live on the web and the App Store.",
+      "problem": "Home-health agencies coordinate staff who are always on the move, often through ordinary chat apps that expose patient information and leave no audit trail. They needed one secure place for messages, calls and care coordination, built for protected health information from day one.",
       "approach": [
-        "A middleware layer that integrates the legacy systems and keeps their data synchronized in real time.",
-        "PostgreSQL with PostGIS for spatial queries, and PostgresFDW to query the external databases from one place.",
-        "GeoServer to publish the map layers, consumed by a Vue and Quasar front end.",
-        "Role-based access control so each team only sees the data it needs."
+        "A FastAPI + SQLAlchemy backend with WebSockets for real-time messaging, and one Flutter codebase for the web, iOS and Android apps.",
+        "Voice and group calls with WebRTC: peer-to-peer when possible, a LiveKit media server for groups and a self-hosted TURN server so calls work behind strict networks.",
+        "Google Cloud with separate staging and production projects: Cloud Run, Cloud SQL with high availability and point-in-time recovery, Secret Manager, and CI/CD through Workload Identity Federation, with no long-lived keys.",
+        "HIPAA turned into code: patient data encrypted with Cloud KMS, a tamper-evident audit log, least-privilege database roles, per-agency isolation, PHI export and account deletion, and versioned legal agreements.",
+        "Self-service agency sign-up with Stripe: agreements, payment, subscriptions, plan changes and refunds.",
+        "Automated releases to the App Store and Google Play, plus internal security audits before each rollout."
       ],
-      "longDescription": "This comprehensive GIS system includes real-time communication and integration with legacy systems. It provides spatial analysis tools specifically tailored for the sugarcane industry, helping optimize planting, harvesting and logistics.",
-      "challenges": "Integrating with multiple legacy systems required developing custom middleware. The biggest challenge was ensuring real-time data synchronization across all components while maintaining performance.",
+      "outcome": "In production. The iOS app has been on the App Store since October 2026 and the Android app is in review on Google Play. About 1,100 commits and 235 test files so far.",
       "features": [
-        "Real-time data visualization",
-        "Integration with legacy systems",
-        "Custom spatial analysis tools",
-        "Role-based access control"
+        "One-to-one and group messaging, broadcast channels and voice messages",
+        "Peer-to-peer and group voice calls",
+        "Clients, visits and check-in/check-out for staff",
+        "Role-based access for administrators, staff and clients",
+        "Encrypted PHI, audit log and device verification"
       ],
-      "role": "Lead Developer"
+      "role": "Lead engineer in a three-person team: backend, apps, cloud infrastructure, payments and compliance. My teammates led UX/UI design, the website and QA."
+    },
+    "vizion": {
+      "title": "Vizion — Report Designer",
+      "description": "SaaS for designing pixel-perfect paginated reports on top of your own SQL databases.",
+      "problem": "Small and mid-sized companies still produce invoices, statements and certificates with Excel templates or old reporting tools. Dashboard products don't solve it: these documents need exact layouts, groups, totals and pagination, built from live company data.",
+      "approach": [
+        "A browser-based designer with report bands (headers, detail, groups, footers), tables, charts, barcodes and QR codes, rendered to PDF on the server.",
+        "Multi-tenant from the start: each organization connects its own databases, and connection strings are encrypted and never sent back to the browser.",
+        "A visual query builder and a SQL editor that run against the customer's database through the server.",
+        "An MCP server with OAuth and dynamic client registration, so AI agents like Claude can design and generate reports against a real database.",
+        "Unit, integration, end-to-end (Playwright) and visual regression tests."
+      ],
+      "features": [
+        "Drag-and-drop canvas with snapping, rulers and layers",
+        "Templates for invoices, certificates, credentials and more",
+        "Server-side PDF generation",
+        "MCP server for AI agents",
+        "Self-hosted option"
+      ],
+      "role": "Full-stack engineer and product owner"
+    },
+    "sugarcane-gis": {
+      "title": "GIS for the Sugarcane Industry",
+      "description": "Took a university lab GIS for Cuba's sugar industry to a deployed, field-piloted system with real-time harvester tracking.",
+      "problem": "The GIS started as a university lab prototype: a map that showed GeoServer layers and nothing else. The data that made it useful lived elsewhere: field details in the CPlus databases of several companies, and harvester positions in a precision-agriculture service with no WebSockets and no GeoJSON.",
+      "approach": [
+        "Linked the map's field layers with the CPlus databases of several companies through PostgreSQL Foreign Data Wrapper, exposed as GeoServer views, so the map shows soil types, cane varieties and harvest data per field.",
+        "Polled the precision-agriculture REST API on a schedule, converted its data to GeoJSON and pushed positions to the browser over WebSockets.",
+        "Matched harvester routes against fields and checked cutting speed, raising real-time alerts when a harvester cut a field too fast or too slow, and kept a daily log of every route.",
+        "Deployed the system with Nginx, Gunicorn, GeoServer on Tomcat and PostgreSQL/PostGIS (until then it had only run in the lab) and load-tested the harvester pipeline: 4,000 harvesters processed within the 30-second refresh window, against a fleet of 1,266."
+      ],
+      "outcome": "A three-month field pilot with live harvesters: routes visible in real time, a daily route history and crop data on the map. Presented at Agrociencias 2023, at the Informática 2024 international convention in Havana (paper with two co-authors) and at the Varadero 2024 business fair, and selected for GEIC's INNOVA 2024 innovation contest.",
+      "features": [
+        "Live harvester tracking and route history",
+        "Cutting-speed alerts per field",
+        "Field data from several company databases on one map",
+        "Map layers published through GeoServer"
+      ],
+      "role": "Integration and deployment, together with one of the original authors"
     },
     "django-generator": {
       "title": "Django Generator",
@@ -266,5 +309,53 @@
     "headingHighlight": "worked",
     "present": "Present"
   },
-  "experienceData": {}
+  "experienceData": {
+    "gmeti": {
+      "role": "Lead Software Engineer",
+      "location": "Remote · Part-time",
+      "highlights": [
+        "HiveCare: lead engineer in a three-person team. Built the FastAPI backend and Flutter apps, run the Google Cloud infrastructure, integrated Stripe and implemented HIPAA safeguards.",
+        "Vizion: multi-tenant SaaS report designer with server-side PDFs and an MCP server for AI agents.",
+        "Sold, customized and deployed software for the company's main client, from finding the need to pricing and delivery.",
+        "Created the company's estimation and pricing tool: a 300-item effort catalog with Monte Carlo risk ranges."
+      ]
+    },
+    "datazucar": {
+      "role": "Full-Stack Engineer & DevOps",
+      "location": "Havana, Cuba · Hybrid · Full-time",
+      "highlights": [
+        "Backend with Django REST Framework and FastAPI behind Nginx and Gunicorn, serving 500+ concurrent users.",
+        "Multi-tenant access model with hierarchical roles for 50+ companies.",
+        "Real-time dashboards (React, Chart.js, WebSockets) and interactive maps (Leaflet, WMS/WFS).",
+        "Building the harvest ERP, including a desktop agent that reads industrial scales over serial ports."
+      ]
+    },
+    "magizone": {
+      "role": "Full-Stack Developer",
+      "location": "Remote · Part-time",
+      "highlights": [
+        "Team project that delivered an e-commerce and classified-ads MVP in three months.",
+        "Integrated PayPal payments into the Django backend and built features in the Next.js frontend.",
+        "Built a scraper that collected classified ads from Facebook and national ad platforms."
+      ]
+    },
+    "alsoftpro": {
+      "role": "Full-Stack Engineer",
+      "location": "Havana, Cuba · Hybrid · Part-time",
+      "highlights": [
+        "ERP modules for billing, accounting, contracts and banking with Django REST Framework and React.",
+        "Took critical processes from 4 s to 200 ms through indexing and ORM tuning.",
+        "Integrated the payment gateway and automated accounting closures, cutting manual work by 80–90%.",
+        "Led a frontend team of 3–5 developers and built a shared React + TypeScript component library."
+      ]
+    },
+    "datazucar-intern": {
+      "role": "Software Developer Intern",
+      "location": "Havana, Cuba · University internship",
+      "highlights": [
+        "2022: Flutter app for sugar mill technicians to track equipment status offline.",
+        "2023: took a lab GIS for the sugar industry to a deployed, field-piloted system with real-time harvester tracking. Presented at Informática 2024."
+      ]
+    }
+  }
 }

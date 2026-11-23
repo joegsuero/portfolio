@@ -1,4 +1,4 @@
-import { CheckCircle2, CircleDashed, Github, Star } from "lucide-react";
+import { CheckCircle2, CircleDashed, Github, Radio, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import type { Project } from "@/data/data";
 
@@ -12,6 +12,12 @@ export default function ProjectBadges({ project }: { project: Project }) {
       icon: Star,
       label: t("projects.featured"),
       className: "text-amber-300 border-amber-400/40",
+    },
+    project.inProduction && {
+      key: "production",
+      icon: Radio,
+      label: t("projects.statusInProduction"),
+      className: "text-emerald-300 border-emerald-400/40",
     },
     project.inProgress && {
       key: "progress",

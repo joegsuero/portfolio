@@ -14,6 +14,8 @@ export interface Project {
   /** "YYYY-MM". Omit when the project is still in progress. */
   completedDate?: string;
   inProgress?: boolean;
+  /** Live product in production (still evolving, so no completedDate). */
+  inProduction?: boolean;
   /** Shown first and highlighted on the home page. */
   featured?: boolean;
   /** Extra screenshots for the case study page. */
@@ -77,6 +79,9 @@ export const TECH_STACK: TechStack[] = [
   { name: "Node.js", years: 4, category: "Backend" },
   { name: "REST APIs", years: 5, category: "Backend" },
   { name: "GraphQL", years: 2, category: "Backend" },
+  { name: "SQLAlchemy", years: 1, category: "Backend" },
+  { name: "WebSockets", years: 3, category: "Backend" },
+  { name: "Stripe", years: 1, category: "Backend" },
   { name: "GeoServer", category: "Backend" },
 
   // DATABASE
@@ -85,9 +90,11 @@ export const TECH_STACK: TechStack[] = [
   { name: "PostgresFDW", years: 4, category: "Database" },
   { name: "SQL", years: 5, category: "Database" },
   { name: "Redis", years: 3, category: "Database" },
+  { name: "MySQL", years: 4, category: "Database" },
   { name: "MongoDB", years: 2, category: "Database" },
 
   // DEVOPS
+  { name: "Google Cloud", years: 1, category: "DevOps" },
   { name: "Docker", years: 3, category: "DevOps" },
   { name: "Linux", years: 5, category: "DevOps" },
   { name: "Nginx", years: 5, category: "DevOps" },
@@ -146,27 +153,103 @@ export interface Experience {
   tech: string[];
 }
 
-export const EXPERIENCE: Experience[] = [];
+/** Ordered by relevance: current roles first, then by end date. */
+export const EXPERIENCE: Experience[] = [
+  {
+    id: "gmeti",
+    company: "GMETI",
+    start: "2021-10",
+    tech: ["Python", "FastAPI", "Flutter", "Google Cloud", "Stripe", "Next.js", "Django"],
+  },
+  {
+    id: "datazucar",
+    company: "Datazucar",
+    start: "2024-02",
+    tech: ["Django", "FastAPI", "React", "PostGIS", "GeoServer", "Nginx"],
+  },
+  {
+    id: "magizone",
+    company: "Magizone",
+    start: "2025-02",
+    end: "2025-05",
+    tech: ["Next.js", "Django", "PayPal"],
+  },
+  {
+    id: "alsoftpro",
+    company: "ALSOFTPRO",
+    start: "2022-08",
+    end: "2025-03",
+    tech: ["Django", "Django REST Framework", "React", "TypeScript", "PostgreSQL"],
+  },
+  {
+    id: "datazucar-intern",
+    company: "Datazucar",
+    start: "2022-03",
+    end: "2023-12",
+    tech: ["Flutter", "FastAPI", "PostGIS", "GeoServer", "Vue.js"],
+  },
+];
 
 export const PROJECTS: Project[] = [
   {
+    id: "hivecare",
+    tech: [
+      "Flutter",
+      "Dart",
+      "FastAPI",
+      "Python",
+      "SQLAlchemy",
+      "WebSockets",
+      "WebRTC",
+      "Google Cloud",
+      "Stripe",
+      "GitHub Actions",
+    ],
+    image: "/showcase/hivecare/hivecare.webp",
+    imageWidth: 1600,
+    imageHeight: 800,
+    live: "https://web.hivecareapp.com",
+    inProduction: true,
+    featured: true,
+    gallery: [
+      { src: "/showcase/hivecare/tablet.webp", width: 1600, height: 900 },
+      { src: "/showcase/hivecare/signup.webp", width: 1440, height: 1024 },
+      { src: "/showcase/hivecare/payment.webp", width: 1440, height: 1024 },
+    ],
+  },
+  {
+    id: "vizion",
+    tech: ["Next.js", "React", "Typescript", "PostgreSQL", "Drizzle", "MCP", "Playwright"],
+    image: "/showcase/vizion/vizion.webp",
+    imageWidth: 1528,
+    imageHeight: 784,
+    inProgress: true,
+    featured: true,
+    gallery: [
+      { src: "/showcase/vizion/editor.webp", width: 1528, height: 784 },
+      { src: "/showcase/vizion/sql.webp", width: 1528, height: 784 },
+      { src: "/showcase/vizion/templates.webp", width: 1600, height: 900 },
+    ],
+  },
+  {
     id: "sugarcane-gis",
     tech: [
-      "Vue.js",
-      "Quasar",
-      "Typescript",
       "FastAPI",
       "Python",
       "PostgreSQL",
       "PostGIS",
-      "Geoserver",
       "PostgresFDW",
+      "Geoserver",
+      "WebSockets",
+      "Vue.js",
+      "Quasar",
     ],
     image: "/showcase/sig/sig.webp",
     imageWidth: 1600,
     imageHeight: 732,
     completedDate: "2023-12",
     featured: true,
+    gallery: [{ src: "/showcase/sig/deployment.webp", width: 968, height: 677 }],
   },
   {
     id: "django-generator",
@@ -177,7 +260,6 @@ export const PROJECTS: Project[] = [
     live: "https://joegsuero.github.io/django-gen-editor/",
     code: "https://github.com/joegsuero/django-generator",
     inProgress: true,
-    featured: true,
   },
   {
     id: "django-erd-designer",

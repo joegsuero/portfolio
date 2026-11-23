@@ -226,7 +226,7 @@ export default function ProjectDetail() {
                       </dd>
                     </div>
 
-                    {(project.completedDate || project.inProgress) && (
+                    {(project.completedDate || project.inProgress || project.inProduction) && (
                       <div>
                         <dt className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
                           {project.completedDate
@@ -238,7 +238,9 @@ export default function ProjectDetail() {
                           <span className="text-gray-300">
                             {project.completedDate
                               ? formatMonth(project.completedDate, language)
-                              : t("projectDetail.inProgress")}
+                              : project.inProduction
+                                ? t("projectDetail.inProduction")
+                                : t("projectDetail.inProgress")}
                           </span>
                         </dd>
                       </div>
